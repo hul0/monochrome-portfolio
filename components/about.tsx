@@ -5,26 +5,44 @@ export function About() {
       className="min-h-screen flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 md:py-0 border-t border-white/10"
     >
       <div className="max-w-5xl mx-auto w-full">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12 tracking-tighter">About</h2>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12 tracking-tighter">
+          About
+        </h2>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           <div className="space-y-6 md:space-y-8">
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
-              I'm a digital designer and developer with a passion for creating minimalist, functional interfaces. With
-              over a decade of experience, I've worked with startups and established brands to bring their visions to
-              life.
+              Hulo is a cat who loves Burgers. I am Hulo Biral. In this about
+              section , you will not know anything "About" me at all. If you
+              want to know about me , you better do that manually by yourself.
+              All you're gonna find here is my tech stack , skills that i've
+              learned since 2022 , my personal favourite tools (or maybe the
+              ones i remember right now) for cybersecurity and other tech stuff.
             </p>
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
-              My approach combines strategic thinking with aesthetic excellence, ensuring every pixel serves a purpose.
-              I believe that great design is invisible—it simply works, elegantly and intuitively.
+              Even though this portfolio website was written by V0 ai chatbot by
+              Vercel , not a single word (known as "String" to the programming
+              world) you see here is AI Written . Why ? because AI might code
+              better than me , but it lacks the most important thing , my
+              Personality.
             </p>
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
-              When I'm not designing, I'm exploring new technologies, contributing to open-source projects, or enjoying
-              the minimal art scene. Let's create something extraordinary together.
+              When I'm talking about my personality , what do you think is my
+              personality? The answer varies from people to people. To some
+              people , I might be arrogant , egoist , narcissist , Pessimist ,
+              Impulsive, Deceptive , Manipulative , Paranoid , Coward ,
+              Unreliable , Lazy , Rude , Attention-Seeking , Self-destructive ,
+              Stubborn and Cynical . To some people , I Might be Empathetic ,
+              confident , humble , honest , loyal , resilient , reliable ,
+              helpful , open-minded , generous , creative , tolerant , forgiving
+              , chill , cool , calm , composed , respectful , supportive ,
+              patient , adaptable & technical genious. Different pictures of me exist in the mind of different people. So it's hard for me to know how I am (or i will be) to you. 
             </p>
           </div>
           <div className="space-y-8">
             <div>
-              <h3 className="text-sm md:text-base font-semibold mb-4 tracking-wide uppercase opacity-60">Skills</h3>
+              <h3 className="text-sm md:text-base font-semibold mb-4 tracking-wide uppercase opacity-60">
+                Skills
+              </h3>
               <div className="flex flex-wrap gap-2 md:gap-3">
                 {[
                   "UI Design",
@@ -48,15 +66,25 @@ export function About() {
               </div>
             </div>
             <div>
-              <h3 className="text-sm md:text-base font-semibold mb-4 tracking-wide uppercase opacity-60">Experience</h3>
+              <h3 className="text-sm md:text-base font-semibold mb-4 tracking-wide uppercase opacity-60">
+                Experience
+              </h3>
               <div className="space-y-4 md:space-y-6">
                 <div className="border-l border-white/20 pl-4 md:pl-6">
-                  <p className="font-semibold text-base md:text-lg">Lead Design Director</p>
-                  <p className="text-white/50 text-sm md:text-base">Digital Studio | 2021 - Present</p>
+                  <p className="font-semibold text-base md:text-lg">
+                    Lead Design Director
+                  </p>
+                  <p className="text-white/50 text-sm md:text-base">
+                    Digital Studio | 2021 - Present
+                  </p>
                 </div>
                 <div className="border-l border-white/20 pl-4 md:pl-6">
-                  <p className="font-semibold text-base md:text-lg">Product Designer</p>
-                  <p className="text-white/50 text-sm md:text-base">Tech Startup | 2018 - 2021</p>
+                  <p className="font-semibold text-base md:text-lg">
+                    Product Designer
+                  </p>
+                  <p className="text-white/50 text-sm md:text-base">
+                    Tech Startup | 2018 - 2021
+                  </p>
                 </div>
               </div>
             </div>
@@ -71,5 +99,5 @@ export function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
