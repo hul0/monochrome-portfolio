@@ -6,7 +6,6 @@ export function TechBanner() {
     "Node.js",
     "Python",
     "Docker",
-    "Kubernetes",
     "AWS",
     "PostgreSQL",
     "TypeScript",

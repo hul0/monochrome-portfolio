@@ -55,16 +55,18 @@ export function About() {
               Vegeta inside me heard that... <br></br> meaningless huh ??
             </p>
             <QuoteComponent
-              quote="This product changed my life! Highly recommended."
-              author="John Doe"
-              authorRole="Verified Customer"
-              source="ProductReviews.com"
-              image="../public/apple-icon.png"
-              schemaType="Quotation"
+              quote="Meaningless Huh ? WHat do you know of meaningless. Spending most of your life ruled by another. Watch your race dwindle to a handful"
+              author="Vegeta"
+              authorRole="Prince of all saiyans"
+              image="/hulo-biral-cyber-security-meaningless-huhh.jpg"
+              imageHeight={200}
+              imageWidth={200}
+              schemaType="Comment"
               datePublished="2024-11-08"
               url="https://example.com/review/123"
-              citation="Review posted on November 8, 2024"
-              variant="card"
+              variant="bordered"
+              quoteColor="white"
+              size="sm"
             />
           </div>
           <div className="space-y-8">
@@ -74,16 +76,37 @@ export function About() {
               </h3>
               <div className="flex flex-wrap gap-2 md:gap-3">
                 {[
-                  "UI Design",
-                  "UX Strategy",
-                  "Frontend Dev",
-                  "React",
+                  "Android App Development",
+                  "Apache Administration",
+                  "C/C++ Programming",
+                  "Cloud Computing",
+                  "Cyber Threat Hunting",
+                  "Cybersecurity",
+                  "DevOps",
+                  "DevSecOps",
+                  "Docker",
+                  "Firewall Configuration",
+                  "Frontend Web Development",
+                  "Git",
+                  "GitHub",
+                  "Internet Security",
+                  "Jetpack Compose",
+                  "Kotlin",
+                  "Linux System Administration",
+                  "MySQL Database Management",
+                  "Network Administration",
                   "Next.js",
-                  "TypeScript",
-                  "Tailwind",
-                  "Animation",
-                  "Branding",
-                  "Web3",
+                  "NGINX Administration",
+                  "OSINT (Open Source Intelligence)",
+                  "Penetration Testing",
+                  "PostgreSQL Database Management",
+                  "Project Management and Planning",
+                  "Python Programming",
+                  "Red Teaming",
+                  "Rust Programming",
+                  "Shell Scripting",
+                  "SQL Injection Testing",
+                  "Web Application Security",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -96,9 +119,15 @@ export function About() {
             </div>
             <div>
               <h3 className="text-sm md:text-base font-semibold mb-4 tracking-wide uppercase opacity-60">
-                Experience
+                Job Experience
               </h3>
-              <div className="space-y-4 md:space-y-6">
+              <p>None - Please gimme a job :(</p>
+              <img
+            src="/hulo-biral-cyber-security-alone.jpg"
+            alt="Hulo biral is alone looking at sky thinking about cyber security"
+            className="w-full h-full object-cover"
+          />
+              {/* <div className="space-y-4 md:space-y-6">
                 <div className="border-l border-white/20 pl-4 md:pl-6">
                   <p className="font-semibold text-base md:text-lg">
                     Lead Design Director
@@ -115,17 +144,11 @@ export function About() {
                     Tech Startup | 2018 - 2021
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-        <div className="mt-16 md:mt-20 h-64 md:h-80 bg-white/5 border border-white/10 rounded overflow-hidden">
-          <img
-            src="/placeholder.svg?height=400&width=700"
-            alt="Professional workspace"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        
       </div>
     </section>
   );
