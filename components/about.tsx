@@ -1,3 +1,4 @@
+import QuoteComponent from "./quote";
 export function About() {
   return (
     <section
@@ -49,8 +50,22 @@ export function About() {
               everything online.
             </p>
             <p className="text-base text-shadow-white/80 leading-loose">
-              (I guess enough meaningless squabble....) Man don't i know that my works matter more than my meaningless squabble ? Oops! maybe the Vegeta inside me heard that... <br></br> meaningless huh ??
+              (I guess enough meaningless squabble....) Man don't i know that my
+              works matter more than my meaningless squabble ? Oops! maybe the
+              Vegeta inside me heard that... <br></br> meaningless huh ??
             </p>
+            <QuoteComponent
+              quote="This product changed my life! Highly recommended."
+              author="John Doe"
+              authorRole="Verified Customer"
+              source="ProductReviews.com"
+              image="../public/apple-icon.png"
+              schemaType="Quotation"
+              datePublished="2024-11-08"
+              url="https://example.com/review/123"
+              citation="Review posted on November 8, 2024"
+              variant="card"
+            />
           </div>
           <div className="space-y-8">
             <div>
