@@ -3,7 +3,7 @@ import { Header } from "@/components/header"
 import { TechBanner } from "@/components/tech-banner"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
-import { Work } from "@/components/work"
+import { HallOfFame } from "@/components/hallOfFame"
 import { Services } from "@/components/services"
 import { Testimonials } from "@/components/testimonials"
 import { CTA } from "@/components/cta"
@@ -36,7 +36,7 @@ export default function Home() {
       <main className="overflow-x-hidden">
         <Hero />
         <About />
-        <Work />
+        <HallOfFame />
         <Services />
         <Testimonials />
         <CTA />

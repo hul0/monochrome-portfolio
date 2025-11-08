@@ -2,18 +2,39 @@
 
 export function TechBanner() {
   const techItems = [
-    "React",
-    "Node.js",
-    "Python",
-    "Docker",
-    "AWS",
-    "PostgreSQL",
-    "TypeScript",
-    "Next.js",
-    "Cybersecurity",
-    "Linux",
-    "Git",
-  ]
+  "Android App Development",
+  "Apache Administration",
+  "C/C++ Programming",
+  "Cloud Computing",
+  "Cyber Threat Hunting",
+  "Cybersecurity",
+  "DevOps",
+  "DevSecOps",
+  "Docker",
+  "Firewall Configuration",
+  "Frontend Web Development",
+  "Git",
+  "GitHub",
+  "Internet Security",
+  "Jetpack Compose",
+  "Kotlin",
+  "Linux System Administration",
+  "MySQL Database Management",
+  "Network Administration",
+  "Next.js",
+  "NGINX Administration",
+  "OSINT (Open Source Intelligence)",
+  "Penetration Testing",
+  "PostgreSQL Database Management",
+  "Project Management and Planning",
+  "Python Programming",
+  "Red Teaming",
+  "Rust Programming",
+  "Shell Scripting",
+  "SQL Injection Testing",
+  "Web Application Security"
+]
+
 
   return (
     <div className="bg-black border-t border-b border-white/10 overflow-hidden mt-20 md:mt-24">
