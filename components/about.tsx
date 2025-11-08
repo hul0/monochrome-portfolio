@@ -14,15 +14,15 @@ export function About() {
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
               Hulo is a cat who loves Burgers. I am Hulo Biral. In this about
               section , you will not know anything "About" me at all. If you
-              want to know about me , you better do that manually by yourself
-              (As a cybersecurity student , i give you full access to stalk ,
-              OSINT & gather information about me , you can dox me , leak almost
-              every secret of mine to the world , erm... except my ssh key ).
-              All you're gonna find here is my tech stack , skills that i've
-              learned since 2022 , my personal favourite tools (or maybe the
-              ones i remember right now) for cybersecurity and other tech stuff.
-              I have bugs just like any other human , so you might notice some
-              grammatical or human errors , kindly ignore or report them to me.
+              want to know about me , you better do that manually by yourself (I
+              give you full authority to stalk , OSINT & gather information
+              about me , you can dox me , leak almost every secret of mine to
+              the world , ehh... except my ssh keys ). All you're gonna find here
+              is my tech stack , skills that i've learned since 2022 , my
+              personal favourite tools (or maybe the ones i remember right now)
+              for cybersecurity and other tech stuff. I have bugs just like any
+              other human , so you might notice some grammatical or human errors
+              , kindly ignore or report them to me.
             </p>
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
               Even though this portfolio website was written by V0 ai chatbot by
@@ -55,7 +55,7 @@ export function About() {
               Vegeta inside me heard that... <br></br> meaningless huh ??
             </p>
             <QuoteComponent
-              quote="Meaningless Huh ? WHat do you know of meaningless. Spending most of your life ruled by another. Watch your race dwindle to a handful"
+              quote="MEANINGLESS, HUH? WHAT DO YOU KNOW OF MEANINGLESS? Spend most of your life ruled by another! Watch your race dwindle to a handful! AND THEN, tell me what has more meaning than your own strength! I have in me the blood of a Saiyan prince. He is nothing but a joke! Yet I've had to watch him surpass me in strength, my destiny thrown to the wayside! He's... he's even saved my life as if I were a helpless child. He has stolen my honor, and his debts... must be paid!"
               author="Vegeta"
               authorRole="Prince of all saiyans"
               image="/hulo-biral-cyber-security-meaningless-huhh.jpg"
@@ -66,6 +66,7 @@ export function About() {
               url="https://example.com/review/123"
               variant="bordered"
               quoteColor="white"
+              imagePosition="top"
               size="sm"
             />
           </div>
@@ -123,10 +124,10 @@ export function About() {
               </h3>
               <p>None - Please gimme a job :(</p>
               <img
-            src="/hulo-biral-cyber-security-alone.jpg"
-            alt="Hulo biral is alone looking at sky thinking about cyber security"
-            className="w-full h-full object-cover"
-          />
+                src="/hulo-biral-cyber-security-alone.jpg"
+                alt="Hulo biral is alone looking at sky thinking about cyber security"
+                className="w-full h-full object-cover"
+              />
               {/* <div className="space-y-4 md:space-y-6">
                 <div className="border-l border-white/20 pl-4 md:pl-6">
                   <p className="font-semibold text-base md:text-lg">
@@ -148,7 +149,6 @@ export function About() {
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   );

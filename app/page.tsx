@@ -10,8 +10,8 @@ import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Modern Portfolio",
-  description: "A minimalist monochrome portfolio showcasing exceptional design and development work.",
+  title: "Hulo Biral - Cybersecurity | Ethical Hacking | The Great Cyber Era",
+  description: "A Cybersecurity portfolio showcasing exceptional design and development work.",
   openGraph: {
     type: "website",
     url: "https://portfolio.example.com",
