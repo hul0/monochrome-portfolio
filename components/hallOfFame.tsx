@@ -1,3 +1,4 @@
+"use client";
 import {
   Shield,
   Award,
@@ -10,10 +11,47 @@ import {
   Facebook,
   Instagram,
   Globe,
-  LucideComputer
+  LucideComputer,
 } from "lucide-react";
 
+import ImageGallery from "./imageGallery";
+import { ImageDatas } from "./imageGallery";
 export function HallOfFame() {
+  const ImagesThatMatter: ImageDatas[] = [
+    {
+      src: "/hulo-biral-cyber-security-eminem-glow.jpeg",
+      alt: "The favourite rapper of Hulo Biral - Eminem",
+      title: "The favourite rapper of Hulo Biral - Eminem",
+      caption: '"I am the real shady"',
+      description: "Famous rapper eminem is the favourite rapper of Hulo Biral",
+      width: 800,
+      height: 600,
+    },
+    {
+      src: "/hulo-biral-cyber-security-goku-black-smile.jpeg",
+      alt: "The favourite anime character of hulo biral is Goku Black",
+      title: "The favourite anime character of hulo biral is Goku Black",
+      caption: "At last , there is nobody left who can resist me",
+      width: 600,
+      height: 800,
+    },
+    {
+      src: "/hulo-biral-cyber-security-idols.jpg",
+      alt: "The idols of hulo biral - cybersecurity are Messi & Adolf",
+      title: "The idols of hulo biral - cybersecurity are Messi & Adolf",
+      caption: "Happy Nation",
+      width: 600,
+      height: 600,
+    },
+    {
+      src: "/hulo-biral-cyber-security-griffith-pfp.png",
+      alt: "Griffith from berserk shares the same dream as hulo biral",
+      title: "Griffith from berserk shares the same dream as hulo biral",
+      caption: "When this man's ambition crumbles",
+      width: 800,
+      height: 600,
+    },
+  ];
   const badges = [
     {
       title: "Introduction to Cybersecurity",
@@ -168,7 +206,14 @@ export function HallOfFame() {
               TryHackMe Banner
             </h3>
           </div>
-            <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1354938" title="hulo biral tryhackme banner" width="100%" height="100%" style={{border: "none"}} loading="lazy"></iframe>
+          <iframe
+            src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1354938"
+            title="hulo biral tryhackme banner"
+            width="100%"
+            height="100%"
+            style={{ border: "none" }}
+            loading="lazy"
+          > </iframe>
         </div>
         {/* Achievements Section */}
         <div className="mb-16 md:mb-24">
@@ -283,6 +328,21 @@ export function HallOfFame() {
               );
             })}
           </div>
+        </div>
+
+        {/* Image Gallery */}
+
+        <div className="min-h-screen bg-black text-white p-8">
+          <ImageGallery
+            images={ImagesThatMatter}
+            autoScrollSpeed={20}
+            autoScrollDirection="right"
+            imageWidth={300}
+            imageHeight={300}
+            gap={24}
+            quality={90}
+            priority={true}
+          />
         </div>
       </div>
     </section>

@@ -1,6 +1,10 @@
+"use client";
+
 import { title } from "process";
 import { MusicPlayer } from "./musicPlayer";
 import { url } from "inspector";
+import Image from "next/image";
+import { useState } from "react";
 
 const demoPlaylist = [
   {
@@ -10,12 +14,14 @@ const demoPlaylist = [
   },
   {
     title: "Six Days",
-    artist:"Unknown",
-    url:"/Six_Days__Remix_(256k).mp3"
-  }
+    artist: "Unknown",
+    url: "/Six_Days__Remix_(256k).mp3",
+  },
 ];
 
 export function Hero() {
+  const [isPlayerOpen, setIsPlayerOpen] = useState(false);
+
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 md:pt-0 px-4 md:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
@@ -24,37 +30,36 @@ export function Hero() {
         </h1>
         <p className="text-base md:text-lg lg:text-xl text-white/70 max-w-2xl mx-auto text-balance leading-relaxed md:leading-relaxed">
           There are three types of power - The power of creation, The Power of
-          Destruction & The Power of Maintaining <br /> Cybersecurity gives you
-          the power to Maintain & Destroy. <br /> Let's start the great cyber
-          era with me :)
+          Destruction & The Power of Saving <br /> Cybersecurity gives you the
+          power to Save & Destroy. <br /> Let's start the great cyber era with
+          me :)
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 md:pt-8">
-          <button className="px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300 font-medium">
-            Inspect Me
+          <button className="px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300 font-medium"
+        
+          >
+            <a href="#about" rel="noopener noreferrer">Inspect Me</a>
           </button>
           <button className="px-8 py-3 bg-white text-black hover:opacity-90 transition-opacity duration-300 font-medium">
-            Join The Crew
+             <a href="#contact" rel="noopener noreferrer">Join The Crew</a>
           </button>
         </div>
-        <br />
-        <p>Wanna Hear some songs ?</p>
-        <br />
-        <div className="flex items-center justify-center">
-          <MusicPlayer
-            playlist={demoPlaylist}
-            autoPlay={true}
-            showPlaylist={true}
-          />
-        </div>
-        <div className="pt-8 md:pt-12">
-          <div className="h-full  bg-white/5 border border-white/10 rounded overflow-hidden">
-            <img
+
+        {/* Optimized Image */}
+        <div className="pt-8 md:pt-12 flex justify-center">
+          <div className="relative w-fit max-w-md h-fit md:h-fit bg-white/5 border border-white/10 rounded overflow-hidden">
+            <Image
               src="/hulo-biral-cyber-security-great-cyber-era.jpg"
-              alt="Start the great cyber era with hulo biral"
-              className="w-full h-full object-cover"
+              alt="Start the great cyber era with Hulo Biral - Cybersecurity expert and hacker"
+              
+              className="object-cover"
+              height={300}
+              width={400}
+              priority={false}
             />
           </div>
         </div>
+
         <div className="pt-4 md:pt-8">
           <svg
             className="w-6 h-6 md:w-8 md:h-8 mx-auto animate-bounce"
@@ -71,6 +76,55 @@ export function Hero() {
           </svg>
         </div>
       </div>
+
+      {/* Floating Music Player Button */}
+      <button
+        onClick={() => setIsPlayerOpen(!isPlayerOpen)}
+        className="fixed bottom-6 right-6 z-50 p-4 bg-white text-black rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
+        aria-label="Toggle music player"
+      >
+        <svg
+          className="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+        </svg>
+      </button>
+
+      {/* Floating Music Player Panel */}
+      {isPlayerOpen && (
+        <div className="fixed bottom-24 right-6 z-50 bg-black/90 backdrop-blur-sm border border-white/10 rounded-lg shadow-2xl p-4 w-fit md:w-fit animate-in slide-in-from-bottom">
+          <div className="flex justify-between items-center mb-3">
+            <p className="text-sm font-medium">Music Player</p>
+            <button
+              onClick={() => setIsPlayerOpen(false)}
+              className="text-white/70 hover:text-white"
+              aria-label="Close music player"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <MusicPlayer
+            playlist={demoPlaylist}
+            autoPlay={false}
+            showPlaylist={false}
+          />
+        </div>
+      )}
     </section>
   );
 }
