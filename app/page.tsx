@@ -11,18 +11,18 @@ import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "Hulo Biral - Cybersecurity | Ethical Hacking | The Great Cyber Era",
-  description: "A Cybersecurity portfolio showcasing exceptional design and development work.",
+  description: "Start the Great Cyber era with Hulo Biral. How about we team up and turn this whole world upside down?",
   openGraph: {
     type: "website",
-    url: "https://portfolio.example.com",
-    title: "Modern Portfolio",
-    description: "A minimalist monochrome portfolio showcasing exceptional design and development work.",
+    url: "https://hulobiral.online",
+    title: "Hulo Biral - Cybersecurity | The Great Cyber Era",
+    description: "Start the Great Cyber era with Hulo Biral. How about we team up and turn this whole world upside down",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image-hulo-biral-cyber-security.jpg",
         width: 1200,
         height: 630,
-        alt: "Modern Portfolio",
+        alt: "The open graph image for hulo biral cyber security",
       },
     ],
   },

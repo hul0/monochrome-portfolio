@@ -10,25 +10,15 @@ import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
 const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
 
 export const metadata: Metadata = {
-  title: "Modern Portfolio",
-  description: "A minimalist monochrome portfolio showcasing exceptional work",
-  generator: "v0.app",
+  title: "Hulo Biral : Cybersecurity | The Great Cyber Era",
+  description: "Start the Great Cyber era with Hulo Biral. How about we team up and turn this whole world upside down?",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
+        url: "/hulo-biral-cyber-security-pfp.jpeg"
+      }
     ],
-    apple: "/apple-icon.png",
+    apple: "/hulo-biral-cyber-security-pfp.jpeg",
   },
 }
 

@@ -124,7 +124,7 @@ export function About() {
               <h3 className="text-sm md:text-base font-semibold mb-4 tracking-wide uppercase opacity-60">
                 Job Experience
               </h3>
-              <p>None - Please gimme a job :(</p>
+              <p>{"None - Please gimme a job :("}</p>
               <img
                 src="/hulo-biral-cyber-security-alone.jpg"
                 alt="Hulo biral is alone looking at sky thinking about cyber security"
