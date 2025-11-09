@@ -111,8 +111,8 @@ export function HallOfFame() {
   ];
 
   const quote = {
-    text: "Security is not a product, but a process. Every vulnerability found is a lesson learned, every challenge solved is a step forward in protecting the digital world.",
-    author: "My Security Philosophy",
+    text: "You think I give a damn about a Grammy? \n Half of you critics can't even stomach me, let alone stand me \n'But Slim, what if you win? Wouldn't it be weird?' \nWhy? So you guys could just lie to get me here? \nSo you can sit me here next to Britney Spears? \nYo, shit, Christina Aguilera better switch me chairs \nSo I can sit next to Carson Daly and Fred Durst \nAnd hear 'em argue over who she gave head to first",
+    author: "EMINEM",
   };
 
   const socialLinks = [
@@ -158,8 +158,7 @@ export function HallOfFame() {
             Hall of Fame
           </h2>
           <p className="text-lg md:text-xl text-white">
-            A showcase of my cybersecurity journey, achievements, and
-            contributions
+            Things that i have achieved so far ()
           </p>
         </div>
 
@@ -213,7 +212,9 @@ export function HallOfFame() {
             height="100%"
             style={{ border: "none" }}
             loading="lazy"
-          > </iframe>
+          >
+            {" "}
+          </iframe>
         </div>
         {/* Achievements Section */}
         <div className="mb-16 md:mb-24">
@@ -288,16 +289,20 @@ export function HallOfFame() {
         {/* Quote Section */}
         <div className="mb-16 md:mb-24">
           <div className="flex items-center gap-3 mb-8">
-            <MessageSquare className="w-6 h-6 text-white" />
+            <MessageSquare className="w-fit h-fit text-white" />
             <h3 className="text-2xl md:text-3xl font-bold text-white">
               Philosophy
             </h3>
           </div>
           <div className="bg-black border-2 border-white p-8 md:p-10">
-            <p className="text-lg md:text-xl text-white italic leading-relaxed mb-4">
+            <p
+              className="text-lg md:text-xl text-white italic leading-relaxed mb-4"
+              style={{ whiteSpace: "pre-line" }}
+            >
               "{quote.text}"
             </p>
             <p className="text-sm text-white">— {quote.author}</p>
+            <img src="/hulo-biral-cyber-security-eminem.jpg" alt="" />
           </div>
         </div>
 

@@ -26,7 +26,7 @@ export function Hero() {
     <section className="min-h-screen flex items-center justify-center pt-20 md:pt-0 px-4 md:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-balance leading-tight md:leading-tight lg:leading-tight">
-          Start the great cyber era with - Hulo Biral
+          Start the great cyber era with Hulo
         </h1>
         <p className="text-base md:text-lg lg:text-xl text-white/70 max-w-2xl mx-auto text-balance leading-relaxed md:leading-relaxed">
           There are three types of power - The power of creation, The Power of
