@@ -282,7 +282,7 @@ export function HallOfFame() {
             width="100%"
             height="100%"
             style={{ border: "none" }}
-            loading="eager"
+            loading="lazy"
           ></iframe>
         </div>
         {/* Achievements Section */}
