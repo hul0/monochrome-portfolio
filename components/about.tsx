@@ -14,15 +14,15 @@ export function About() {
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
               Hulo is a cat who loves Burgers. I am Hulo Biral. In this about
               section , you will not know anything "About" me at all. If you
-              want to know about me , you better do that manually by yourself (I
-              give you full authority to stalk , OSINT & gather information
-              about me , you can dox me , leak almost every secret of mine to
-              the world , ehh... except my ssh keys ). All you're gonna find here
-              is my tech stack , skills that i've learned since 2022 , my
-              personal favourite tools (or maybe the ones i remember right now)
-              for cybersecurity and other tech stuff. I have bugs just like any
-              other human , so you might notice some grammatical or human errors
-              , kindly ignore or report them to me.
+              want to know about me , you better do that by yourself (You can
+              stalk , OSINT & gather information about me , you can dox me ,
+              leak almost every secret of mine to the world... except my ssh
+              keys ). All you're gonna find here is my tech stack , skills that
+              i've learned since 2022 , my personal favourite tools (or maybe
+              the ones i remember right now) for cybersecurity and other tech
+              stuff. I have bugs just like any other human , so you might notice
+              some grammatical or human errors , kindly ignore or report them to
+              me.
             </p>
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
               Even though this portfolio website was written by V0 ai chatbot by
@@ -33,25 +33,28 @@ export function About() {
             </p>
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
               When I'm talking about my personality , what do you think is my
-              personality? The answer varies from people to people. To some
+              personality? The answer varies from people to people.
+              {/*               
+              To some
               people , I might be arrogant , egoist , narcissist , Pessimist ,
               Impulsive, Deceptive , Manipulative , Paranoid , Coward ,
-              Unreliable , Lazy , Rude , Attention-Seeking , Self-destructive ,
+              Unreliable , Lazy , Rude , Attention-Seeking ,
               Stubborn and Cynical . To some people , I Might be Empathetic ,
               confident , humble , honest , loyal , resilient , reliable ,
               helpful , open-minded , generous , creative , tolerant , forgiving
               , chill , cool , calm , composed , respectful , supportive ,
-              patient , adaptable & technical genious. Different pictures of me
-              exist in the mind of different people. So it's hard for me to know
-              how I am (or i will be) to you. But i am eager to know that from
-              you ! I would love to hear from you , and i will be more than
-              happy knowing which image of me exists in your memory. If you
-              don't wanna share , that's totally fine , we should not share
-              everything online.
+              patient , adaptable & technical genious.
+               */}
+              Different pictures of me exist in the mind of different people. So
+              it's hard for me to know how I am (or i will be) to you. But i am
+              eager to know that from you ! I would love to hear from you , and
+              i will be more than happy knowing which image of me exists in your
+              memory. If you don't wanna share , that's fine , we should
+              not share everything online, especially images which include your face.
             </p>
             <p className="text-base text-shadow-white/80 leading-loose">
-              (I guess enough meaningless squabble....) Man don't i know that my
-              works matter more than my meaningless squabble ? Oops! maybe the
+              (I guess enough meaningless squabble....) Well , Don't i know that my
+              works matter more than my meaningless squabble ? Maybe the
               Vegeta inside me heard that... <br></br> meaningless huh ??
             </p>
             <QuoteComponent
@@ -62,8 +65,7 @@ export function About() {
               imageHeight={200}
               imageWidth={200}
               schemaType="Comment"
-              datePublished="2024-11-08"
-              url="https://example.com/review/123"
+              datePublished="2025-11-09"
               variant="bordered"
               quoteColor="white"
               imagePosition="top"
