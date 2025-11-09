@@ -165,12 +165,12 @@ const QuoteComponent: React.FC<QuoteProps> = ({
         {(author || authorRole || source) && (
           <footer className={`mt-4 ${sizeClasses[size]} ${authorClassName}`}>
             {author && (
-              <cite className="font-medium text-gray-900 not-italic" itemProp="author">
+              <cite className="font-medium text-yellow-400 not-italic" itemProp="author">
                 {author}
               </cite>
             )}
             {authorRole && (
-              <span className="text-gray-600"> · {authorRole}</span>
+              <span className="text-blue-400"> · {authorRole}</span>
             )}
             {source && (
               <div className="text-gray-500 mt-1" itemProp="publisher">

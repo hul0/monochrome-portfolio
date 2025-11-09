@@ -12,6 +12,8 @@ import {
   Instagram,
   Globe,
   LucideComputer,
+  X,
+  LucideTwitter,
 } from "lucide-react";
 
 import ImageGallery from "./imageGallery";
@@ -93,22 +95,59 @@ export function HallOfFame() {
   ];
 
   const tools = [
-    "Burp Suite",
-    "Metasploit",
-    "Nmap",
-    "Wireshark",
-    "Ghidra",
-    "IDA Pro",
-    "John the Ripper",
-    "Hashcat",
-    "SQLMap",
-    "Aircrack-ng",
-    "OWASP ZAP",
-    "Nikto",
-    "Gobuster",
-    "Hydra",
-    "Netcat",
-  ];
+  "Nmap",
+  "Wireshark",
+  "Metasploit Framework",
+  "Burp Suite",
+  "OWASP ZAP",
+  "sqlmap",
+  "Hashcat",
+  "John the Ripper",
+  "Aircrack-ng",
+  "Hydra",
+  "Masscan",
+  "Netcat",
+  "Hping3",
+  "Shodan",
+  "Nikto",
+  "Snort",
+  "Amass",
+  "theHarvester",
+  "Sublist3r",
+  "Recon-ng",
+  "Gobuster",
+  "ffuf",
+  "Wfuzz",
+  "DirBuster",
+  "WhatWeb",
+  "WAFW00F",
+  "BeEF",
+  "Social-Engineer Toolkit (SET)",
+  "Gophish",
+  "Maltego",
+  "SpiderFoot",
+  "DNSRecon",
+  "Knockpy",
+  "Airodump-ng",
+  "RainbowCrack",
+  "Cowpatty",
+  "CeWL",
+  "Commix",
+  "Searchsploit",
+  "ExifTool",
+  "Tor",
+  "ProxyChains",
+  "ngrok",
+  "OpenVPN",
+  "UFW",
+  "Steghide",
+  "TorsHammer",
+  "Slowloris",
+  "ATK6 - Smurf6",
+  "Holehe",
+  "iSMTP",
+  "Self-made tools"
+];
 
   const quote = {
     text: "You think I give a damn about a Grammy? \n Half of you critics can't even stomach me, let alone stand me \n'But Slim, what if you win? Wouldn't it be weird?' \nWhy? So you guys could just lie to get me here? \nSo you can sit me here next to Britney Spears? \nYo, shit, Christina Aguilera better switch me chairs \nSo I can sit next to Carson Daly and Fred Durst \nAnd hear 'em argue over who she gave head to first",
@@ -119,21 +158,21 @@ export function HallOfFame() {
     {
       name: "TryHackMe",
       icon: Shield,
-      url: "https://tryhackme.com/p/yourprofile",
+      url: "https://tryhackme.com/p/hulo",
     },
-    { name: "GitHub", icon: Github, url: "https://github.com/yourusername" },
-    { name: "GitLab", icon: Globe, url: "https://gitlab.com/yourusername" },
+    { name: "GitHub", icon: Github, url: "https://github.com/hul0" },
+    { name: "GitLab", icon: Globe, url: "https://gitlab.com/hul0" },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/yourprofile",
+      url: "https://linkedin.com/in/hulo",
     },
-    { name: "Medium", icon: Book, url: "https://medium.com/@yourusername" },
-    { name: "YouTube", icon: Youtube, url: "https://youtube.com/@yourchannel" },
+    { name: "Medium", icon: Book, url: "https://medium.com/@hulo-biral" },
+    { name: "YouTube", icon: Youtube, url: "https://youtube.com/@hulocyber" },
     {
       name: "X (Twitter)",
-      icon: MessageSquare,
-      url: "https://x.com/yourhandle",
+      icon: LucideTwitter,
+      url: "https://x.com/hulocyber",
     },
     {
       name: "Facebook",
@@ -158,7 +197,7 @@ export function HallOfFame() {
             Hall of Fame
           </h2>
           <p className="text-lg md:text-xl text-white">
-            Things that i have achieved so far ()
+            Things that i have achieved so far (Not much yet , trying hard)
           </p>
         </div>
 
@@ -211,9 +250,9 @@ export function HallOfFame() {
             width="100%"
             height="100%"
             style={{ border: "none" }}
-            loading="lazy"
+            loading="eager"
           >
-            {" "}
+            
           </iframe>
         </div>
         {/* Achievements Section */}
@@ -249,7 +288,8 @@ export function HallOfFame() {
               Professional Certificates
             </h3>
           </div>
-          <div className="space-y-3">
+          <p>I can't afford any cybersecurity certificates now (No Money . I'm Gareebs)</p>
+          {/* <div className="space-y-3">
             {certificates.map((cert, index) => (
               <div
                 key={index}
@@ -263,7 +303,7 @@ export function HallOfFame() {
                 </span>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Tools Section */}
@@ -271,7 +311,7 @@ export function HallOfFame() {
           <div className="flex items-center gap-3 mb-8">
             <Wrench className="w-6 h-6 text-white" />
             <h3 className="text-2xl md:text-3xl font-bold text-white">
-              Arsenal & Tools
+              Tools I Use
             </h3>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -340,13 +380,14 @@ export function HallOfFame() {
         <div className="min-h-screen bg-black text-white p-8">
           <ImageGallery
             images={ImagesThatMatter}
-            autoScrollSpeed={20}
+            autoScrollSpeed={60}
             autoScrollDirection="right"
             imageWidth={300}
             imageHeight={300}
-            gap={24}
+            gap={30}
             quality={90}
             priority={true}
+            showControls={false}
           />
         </div>
       </div>
