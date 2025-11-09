@@ -26,13 +26,10 @@ export function Hero() {
     <section className="min-h-screen flex items-center justify-center pt-20 md:pt-0 px-4 md:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-balance leading-tight md:leading-tight lg:leading-tight">
-          Start the great cyber era with Hulo
+          Start the Great Cyber era with Hulo
         </h1>
         <p className="text-base md:text-lg lg:text-xl text-white/70 max-w-2xl mx-auto text-balance leading-relaxed md:leading-relaxed">
-          There are three types of power - The power of creation, The Power of
-          Destruction & The Power of Saving <br /> Cybersecurity gives you the
-          power to Save & Destroy. <br /> Let's start the great cyber era with
-          me :)
+          "My name is Hulo. It's destiny, meeting you, I say. How about we team up and turn this whole world upside down?"
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 md:pt-8">
           <button className="px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300 font-medium">
