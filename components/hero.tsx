@@ -7,11 +7,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 const demoPlaylist = [
-  {
-    title: "Crystal Castles - Crimewave",
-    artist: "Crystal Castles",
-    url: "/Crystal Castles - Crimewave (slowed + reverb) [gFmC6M0aeP8].mp3",
-  },
+  // {
+  //   title: "Crystal Castles - Crimewave",
+  //   artist: "Crystal Castles",
+  //   url: "/Crystal Castles - Crimewave (slowed + reverb) [gFmC6M0aeP8].mp3",
+  // },
   {
     title: "Six Days",
     artist: "Unknown",
@@ -29,7 +29,7 @@ export function Hero() {
           Start the Great Cyber era with Hulo
         </h1>
         <p className="text-base md:text-lg lg:text-xl text-white/70 max-w-2xl mx-auto text-balance leading-relaxed md:leading-relaxed">
-          "My name is Hulo. It's destiny, meeting you, I say. How about we team up and turn this whole world upside down?"
+          "My name is Hulo. It's destiny, meeting you, I say. How about we team up and turn this whole world upside down?" <br /> Lets start The Great Cyber Era.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 md:pt-8">
           <button className="px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300 font-medium">

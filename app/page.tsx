@@ -10,8 +10,8 @@ import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Hulo Biral - Cybersecurity | Ethical Hacking | The Great Cyber Era",
-  description: "Start the Great Cyber era with Hulo Biral. How about we team up and turn this whole world upside down?",
+  title: "Hulo Biral - Cybersecurity | Start The Great Cyber Era",
+  description: "Start the Great Cyber era with Hulo Biral. My name is Roger. It's destiny, meeting you, I say. How about we team up and turn this whole world upside down? ",
   openGraph: {
     type: "website",
     url: "https://hulobiral.online",
