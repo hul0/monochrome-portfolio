@@ -413,7 +413,7 @@ export function HallOfFame() {
         <div className="min-h-screen bg-black text-white p-8">
           <ImageGallery
             images={ImagesThatMatter}
-            autoScrollSpeed={80}
+            autoScrollSpeed={60}
             autoScrollDirection="right"
             imageWidth={300}
             imageHeight={300}

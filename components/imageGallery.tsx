@@ -16,7 +16,7 @@ export interface ImageDatas {
 
 export interface ImageGalleryProps {
   images: ImageDatas[];
-  autoScrollSpeed?: number; // pixels per second
+  autoScrollSpeed?: number;
   autoScrollDirection?: 'left' | 'right';
   showControls?: boolean;
   imageClassName?: string;
@@ -37,39 +37,102 @@ export default function ImageGallery({
   imageClassName = '',
   containerClassName = '',
   buttonClassName = '',
-  imageWidth = 400,
+  imageWidth = 300,
   imageHeight = 300,
   gap = 24,
   priority = false,
   quality = 90,
 }: ImageGalleryProps) {
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [responsiveWidth, setResponsiveWidth] = useState(imageWidth);
+  const [responsiveHeight, setResponsiveHeight] = useState(imageHeight);
+  const [responsiveGap, setResponsiveGap] = useState(gap);
+  const [currentScrollSpeed, setCurrentScrollSpeed] = useState(autoScrollSpeed);
+  
+  // Use ref instead of state for scroll position to avoid re-renders
+  const scrollPositionRef = useRef(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>(1);
+  const animationRef = useRef<number>(0);
+  const totalWidthRef = useRef(0);
 
-  // Calculate total width of all images (including caption space)
-  const totalWidth = (imageWidth + gap) * images.length;
-
+  // Handle responsive sizing and speed based on viewport
   useEffect(() => {
-    if (isHovered) return;
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const isMobileView = width < 640;
+      setIsMobile(isMobileView);
+      
+      // Mobile (< 640px): 30% smaller images and 2x speed
+      if (isMobileView) {
+        const mobileWidth = Math.min((width - 32) * 0.7, 245);
+        const mobileHeight = mobileWidth;
+        setResponsiveWidth(mobileWidth);
+        setResponsiveHeight(mobileHeight);
+        setResponsiveGap(12);
+        setCurrentScrollSpeed(autoScrollSpeed * 0.5);
+      } 
+      // Tablet (640px - 768px)
+      else if (width < 768) {
+        setResponsiveWidth(Math.min(width * 0.7, 450));
+        setResponsiveHeight(Math.min(width * 0.7, 450));
+        setResponsiveGap(16);
+        setCurrentScrollSpeed(autoScrollSpeed * 0.5);
+      }
+      // Desktop (>= 768px)
+      else {
+        setResponsiveWidth(imageWidth);
+        setResponsiveHeight(imageHeight);
+        setResponsiveGap(gap);
+        setCurrentScrollSpeed(autoScrollSpeed);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [imageWidth, imageHeight, gap, autoScrollSpeed]);
+
+  // Calculate total width
+  useEffect(() => {
+    totalWidthRef.current = (responsiveWidth + responsiveGap) * images.length;
+  }, [responsiveWidth, responsiveGap, images.length]);
+
+  // Update current index periodically (not every frame)
+  useEffect(() => {
+    const updateIndex = () => {
+      const index = Math.floor(Math.abs(scrollPositionRef.current) / (responsiveWidth + responsiveGap)) % images.length;
+      setCurrentIndex(index);
+    };
+
+    const interval = setInterval(updateIndex, 200); // Update every 200ms instead of every frame
+    return () => clearInterval(interval);
+  }, [responsiveWidth, responsiveGap, images.length]);
+
+  // High-performance animation loop using GPU-accelerated transforms
+  useEffect(() => {
+    if (!scrollContainerRef.current) return;
+
+    const scrollContainer = scrollContainerRef.current.querySelector('.scroll-container') as HTMLElement;
+    if (!scrollContainer) return;
 
     const animate = () => {
-      setScrollPosition((prev) => {
+      if (!isHovered) {
         const direction = autoScrollDirection === 'right' ? 1 : -1;
-        const newPos = prev + (direction * autoScrollSpeed) / 60;
+        scrollPositionRef.current += (direction * currentScrollSpeed) / 60;
 
         // Loop the scroll
-        if (autoScrollDirection === 'right' && newPos >= totalWidth) {
-          return 0;
+        if (autoScrollDirection === 'right' && scrollPositionRef.current >= totalWidthRef.current) {
+          scrollPositionRef.current = 0;
         }
-        if (autoScrollDirection === 'left' && newPos <= -totalWidth) {
-          return 0;
+        if (autoScrollDirection === 'left' && scrollPositionRef.current <= -totalWidthRef.current) {
+          scrollPositionRef.current = 0;
         }
 
-        return newPos;
-      });
+        // Use GPU-accelerated transform - no React re-render
+        scrollContainer.style.transform = `translate3d(-${scrollPositionRef.current}px, 0, 0)`;
+      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -81,24 +144,18 @@ export default function ImageGallery({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isHovered, autoScrollSpeed, autoScrollDirection, totalWidth]);
-
-  // Update current index based on scroll position
-  useEffect(() => {
-    const index = Math.floor(Math.abs(scrollPosition) / (imageWidth + gap)) % images.length;
-    setCurrentIndex(index);
-  }, [scrollPosition, imageWidth, gap, images.length]);
+  }, [isHovered, currentScrollSpeed, autoScrollDirection]);
 
   const handlePrev = () => {
     const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-    setScrollPosition(newIndex * (imageWidth + gap));
+    scrollPositionRef.current = newIndex * (responsiveWidth + responsiveGap);
   };
 
   const handleNext = () => {
     const newIndex = (currentIndex + 1) % images.length;
     setCurrentIndex(newIndex);
-    setScrollPosition(newIndex * (imageWidth + gap));
+    scrollPositionRef.current = newIndex * (responsiveWidth + responsiveGap);
   };
 
   return (
@@ -126,17 +183,21 @@ export default function ImageGallery({
       {/* Main Gallery Container */}
       <div
         ref={scrollContainerRef}
-        className="relative py-8"
+        className="relative py-4 md:py-8"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={() => setIsHovered(true)}
+        onTouchEnd={() => setIsHovered(false)}
         role="region"
         aria-label="Image gallery"
       >
+        {/* GPU-accelerated scroll container */}
         <div
-          className="flex transition-transform duration-100 ease-linear"
+          className="scroll-container flex"
           style={{
-            transform: `translateX(-${scrollPosition}px)`,
-            gap: `${gap}px`,
+            gap: `${responsiveGap}px`,
+            willChange: 'transform', // GPU acceleration hint
+            transform: 'translate3d(0, 0, 0)', // Force GPU layer
           }}
         >
           {/* Render images 3 times for seamless loop */}
@@ -147,27 +208,29 @@ export default function ImageGallery({
                 key={`${originalIndex}-${idx}`}
                 className={`flex-shrink-0 ${imageClassName}`}
                 style={{
-                  width: `${imageWidth}px`,
+                  width: `${responsiveWidth}px`,
                 }}
               >
                 {/* Image Container */}
-                <div className="relative" style={{ height: `${imageHeight}px` }}>
+                <div className="relative" style={{ height: `${responsiveHeight}px` }}>
                   <Image
                     src={image.src}
                     alt={image.alt}
                     title={image.title || image.alt}
-                    width={image.width || imageWidth}
-                    height={image.height || imageHeight}
-                    quality={quality}
+                    width={image.width || responsiveWidth}
+                    height={image.height || responsiveHeight}
+                    quality={isMobile ? 75 : quality} // Lower quality on mobile for performance
                     priority={priority && idx < 3}
-                    className="object-cover w-full h-full border-2 border-white"
+                    className="object-cover w-full h-full border border-white md:border-2"
                     loading={idx < 3 ? 'eager' : 'lazy'}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                   />
                 </div>
 
                 {/* Visible Caption Below Image */}
                 {(image.caption || image.description) && (
-                  <figcaption className="mt-3 px-2 text-white/80 text-sm md:text-base text-center leading-relaxed">
+                  <figcaption className="mt-2 md:mt-3 px-1 md:px-2 text-white/80 text-xs sm:text-sm md:text-base text-center leading-relaxed">
                     {image.caption || image.description}
                   </figcaption>
                 )}
@@ -184,7 +247,7 @@ export default function ImageGallery({
           <>
             <button
               onClick={handlePrev}
-              className={`absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black p-4 hover:bg-gray-200 transition-colors z-10 ${buttonClassName}`}
+              className={`absolute left-0.5 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 text-black p-1.5 sm:p-3 md:p-4 hover:bg-white active:bg-gray-300 transition-colors z-10 rounded-md shadow-lg touch-manipulation ${buttonClassName}`}
               aria-label="Previous image"
               type="button"
             >
@@ -192,9 +255,9 @@ export default function ImageGallery({
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={2.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-3 h-3 sm:w-5 sm:h-5 md:w-6 md:h-6"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
@@ -202,7 +265,7 @@ export default function ImageGallery({
 
             <button
               onClick={handleNext}
-              className={`absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black p-4 hover:bg-gray-200 transition-colors z-10 ${buttonClassName}`}
+              className={`absolute right-0.5 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 text-black p-1.5 sm:p-3 md:p-4 hover:bg-white active:bg-gray-300 transition-colors z-10 rounded-md shadow-lg touch-manipulation ${buttonClassName}`}
               aria-label="Next image"
               type="button"
             >
@@ -210,9 +273,9 @@ export default function ImageGallery({
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={2.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-3 h-3 sm:w-5 sm:h-5 md:w-6 md:h-6"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
@@ -222,16 +285,16 @@ export default function ImageGallery({
       </div>
 
       {/* Position Indicator */}
-      <div className="flex justify-center gap-2 pb-4">
+      <div className="flex justify-center gap-1.5 md:gap-2 pb-3 md:pb-4">
         {images.map((_, idx) => (
           <button
             key={idx}
             onClick={() => {
               setCurrentIndex(idx);
-              setScrollPosition(idx * (imageWidth + gap));
+              scrollPositionRef.current = idx * (responsiveWidth + responsiveGap);
             }}
-            className={`w-2 h-2 transition-all ${
-              idx === currentIndex ? 'bg-white w-8' : 'bg-white/50'
+            className={`h-1.5 md:h-2 transition-all rounded-full ${
+              idx === currentIndex ? 'bg-white w-6 md:w-8' : 'bg-white/50 w-1.5 md:w-2'
             }`}
             aria-label={`Go to image ${idx + 1}`}
             type="button"
