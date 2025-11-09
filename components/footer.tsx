@@ -6,9 +6,9 @@ export function Footer() {
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
           <div>
-            <h3 className="font-bold text-lg mb-4">Portfolio</h3>
+            <h3 className="font-bold text-lg mb-4">Hulo Biral</h3>
             <p className="text-white/60 text-sm leading-relaxed">
-              A curated collection of design and development work, exploring the intersection of art and technology.
+              Did you like my website? Then lemme know what u liked the most , send me email to {"hulo@hulobiral.online <3 ;) "} 
             </p>
           </div>
           <div>
@@ -56,7 +56,17 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="text-white/60 hover:text-white transition-colors">
-                  Dribbble
+                  GitLab
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 hover:text-white transition-colors">
+                  Youtube
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 hover:text-white transition-colors">
+                  Medium
                 </a>
               </li>
             </ul>
@@ -64,16 +74,16 @@ export function Footer() {
         </div>
         <div className="border-t border-white/10 pt-8 md:pt-12 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/50 text-xs md:text-sm">
-            © {currentYear} All rights reserved. Designed and developed with precision.
+            © {currentYear} All rights reserved by Hulo Biral.
           </p>
           <div className="flex gap-6 md:gap-8 text-xs md:text-sm">
-            <a href="#" className="text-white/50 hover:text-white transition-colors">
+            {/* <a href="#" className="text-white/50 hover:text-white transition-colors">
               Privacy
             </a>
             <a href="#" className="text-white/50 hover:text-white transition-colors">
               Terms
-            </a>
-            <a href="#" className="text-white/50 hover:text-white transition-colors">
+            </a> */}
+            <a href="/sitemap.xml" className="text-white/50 hover:text-white transition-colors">
               Sitemap
             </a>
           </div>
