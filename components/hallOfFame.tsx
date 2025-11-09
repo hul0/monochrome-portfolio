@@ -33,7 +33,7 @@ export function HallOfFame() {
       src: "/hulo-biral-cyber-security-goku-black-smile.jpeg",
       alt: "The favourite anime character of hulo biral is Goku Black",
       title: "The favourite anime character of hulo biral is Goku Black",
-      caption: "At last , there is nobody left who can resist me",
+      caption: '"At last , there is nobody left who can resist me"',
       width: 600,
       height: 800,
     },
@@ -41,7 +41,7 @@ export function HallOfFame() {
       src: "/hulo-biral-cyber-security-idols.jpg",
       alt: "The idols of hulo biral - cybersecurity are Messi & Adolf",
       title: "The idols of hulo biral - cybersecurity are Messi & Adolf",
-      caption: "Happy Nation",
+      caption: "My Idols",
       width: 600,
       height: 600,
     },
@@ -49,8 +49,40 @@ export function HallOfFame() {
       src: "/hulo-biral-cyber-security-griffith-pfp.png",
       alt: "Griffith from berserk shares the same dream as hulo biral",
       title: "Griffith from berserk shares the same dream as hulo biral",
-      caption: "When this man's ambition crumbles",
-      width: 800,
+      caption: '"For me to call a man my friend, he must be equal to me in all respects."',
+      width: 600,
+      height: 600,
+    },
+    {
+      src: "/hulo-biral-cyber-security-original-face.jpg",
+      alt: "The original face of hulo biral who is a cyber security student",
+      title: "Hulo Biral original face",
+      caption: "This is me btw :(",
+      width: 600,
+      height: 600,
+    },
+    {
+      src: "/hulo-biral-cyber-security-ben-10-smoothie.jpeg",
+      alt: "Hulo biral loves smoothie just like Ben 10",
+      title: "Hulo Biral favourite childhood cartoon - Ben 10",
+      caption: "Be calm like Ben-10 and work smooth like Smoothie",
+      width: 600,
+      height: 600,
+    },
+    {
+      src: "/hulo-biral-cyber-security-kid-goku-smile.jpeg",
+      alt: "Hulo Biral is as innocent as kid goku",
+      title: "Kid Goku Pfp - Hulo Biral",
+      caption: "Thanks for spending time in my website , I hope you liked it , hehe <3 :)",
+      width: 600,
+      height: 600,
+    },
+    {
+      src: "/hulo-biral-cyber-security-work.jpg",
+      alt: "Hulo Biral is a cyber security student and engineer",
+      title: "Hulo biral is a cyber security engineer",
+      caption: "I'm Engineer. HueHueHue",
+      width: 600,
       height: 600,
     },
   ];
@@ -95,59 +127,59 @@ export function HallOfFame() {
   ];
 
   const tools = [
-  "Nmap",
-  "Wireshark",
-  "Metasploit Framework",
-  "Burp Suite",
-  "OWASP ZAP",
-  "sqlmap",
-  "Hashcat",
-  "John the Ripper",
-  "Aircrack-ng",
-  "Hydra",
-  "Masscan",
-  "Netcat",
-  "Hping3",
-  "Shodan",
-  "Nikto",
-  "Snort",
-  "Amass",
-  "theHarvester",
-  "Sublist3r",
-  "Recon-ng",
-  "Gobuster",
-  "ffuf",
-  "Wfuzz",
-  "DirBuster",
-  "WhatWeb",
-  "WAFW00F",
-  "BeEF",
-  "Social-Engineer Toolkit (SET)",
-  "Gophish",
-  "Maltego",
-  "SpiderFoot",
-  "DNSRecon",
-  "Knockpy",
-  "Airodump-ng",
-  "RainbowCrack",
-  "Cowpatty",
-  "CeWL",
-  "Commix",
-  "Searchsploit",
-  "ExifTool",
-  "Tor",
-  "ProxyChains",
-  "ngrok",
-  "OpenVPN",
-  "UFW",
-  "Steghide",
-  "TorsHammer",
-  "Slowloris",
-  "ATK6 - Smurf6",
-  "Holehe",
-  "iSMTP",
-  "Self-made tools"
-];
+    "Nmap",
+    "Wireshark",
+    "Metasploit Framework",
+    "Burp Suite",
+    "OWASP ZAP",
+    "sqlmap",
+    "Hashcat",
+    "John the Ripper",
+    "Aircrack-ng",
+    "Hydra",
+    "Masscan",
+    "Netcat",
+    "Hping3",
+    "Shodan",
+    "Nikto",
+    "Snort",
+    "Amass",
+    "theHarvester",
+    "Sublist3r",
+    "Recon-ng",
+    "Gobuster",
+    "ffuf",
+    "Wfuzz",
+    "DirBuster",
+    "WhatWeb",
+    "WAFW00F",
+    "BeEF",
+    "Social-Engineer Toolkit (SET)",
+    "Gophish",
+    "Maltego",
+    "SpiderFoot",
+    "DNSRecon",
+    "Knockpy",
+    "Airodump-ng",
+    "RainbowCrack",
+    "Cowpatty",
+    "CeWL",
+    "Commix",
+    "Searchsploit",
+    "ExifTool",
+    "Tor",
+    "ProxyChains",
+    "ngrok",
+    "OpenVPN",
+    "UFW",
+    "Steghide",
+    "TorsHammer",
+    "Slowloris",
+    "ATK6 - Smurf6",
+    "Holehe",
+    "iSMTP",
+    "Self-made tools",
+  ];
 
   const quote = {
     text: "You think I give a damn about a Grammy? \n Half of you critics can't even stomach me, let alone stand me \n'But Slim, what if you win? Wouldn't it be weird?' \nWhy? So you guys could just lie to get me here? \nSo you can sit me here next to Britney Spears? \nYo, shit, Christina Aguilera better switch me chairs \nSo I can sit next to Carson Daly and Fred Durst \nAnd hear 'em argue over who she gave head to first",
@@ -251,9 +283,7 @@ export function HallOfFame() {
             height="100%"
             style={{ border: "none" }}
             loading="eager"
-          >
-            
-          </iframe>
+          ></iframe>
         </div>
         {/* Achievements Section */}
         <div className="mb-16 md:mb-24">
@@ -288,7 +318,10 @@ export function HallOfFame() {
               Professional Certificates
             </h3>
           </div>
-          <p>I can't afford any cybersecurity certificates now (No Money . I'm Gareebs)</p>
+          <p>
+            I can't afford any cybersecurity certificates now (No Money . I'm
+            Gareebs)
+          </p>
           {/* <div className="space-y-3">
             {certificates.map((cert, index) => (
               <div
@@ -380,7 +413,7 @@ export function HallOfFame() {
         <div className="min-h-screen bg-black text-white p-8">
           <ImageGallery
             images={ImagesThatMatter}
-            autoScrollSpeed={60}
+            autoScrollSpeed={80}
             autoScrollDirection="right"
             imageWidth={300}
             imageHeight={300}

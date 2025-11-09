@@ -20,8 +20,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#work" className="text-white/60 hover:text-white transition-colors">
-                  Work
+                <a href="#hall-of-fame" className="text-white/60 hover:text-white transition-colors">
+                  Achievements
                 </a>
               </li>
               <li>

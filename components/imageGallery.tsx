@@ -49,7 +49,7 @@ export default function ImageGallery({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(1);
 
-  // Calculate total width of all images
+  // Calculate total width of all images (including caption space)
   const totalWidth = (imageWidth + gap) * images.length;
 
   useEffect(() => {
@@ -117,6 +117,7 @@ export default function ImageGallery({
               contentUrl: img.src,
               name: img.alt,
               description: img.title || img.alt,
+              caption: img.caption || img.description,
             })),
           }),
         }}
@@ -144,25 +145,35 @@ export default function ImageGallery({
             return (
               <div
                 key={`${originalIndex}-${idx}`}
-                className={`flex-shrink-0 relative ${imageClassName}`}
+                className={`flex-shrink-0 ${imageClassName}`}
                 style={{
                   width: `${imageWidth}px`,
-                  height: `${imageHeight}px`,
                 }}
               >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  title={image.title || image.alt}
-                  width={image.width || imageWidth}
-                  height={image.height || imageHeight}
-                  quality={quality}
-                  priority={priority && idx < 3}
-                  className="object-cover w-full h-full border-2 border-white"
-                  loading={idx < 3 ? 'eager' : 'lazy'}
-                />
-                {/* SEO-friendly caption */}
-                <figcaption className="sr-only">{image.alt}</figcaption>
+                {/* Image Container */}
+                <div className="relative" style={{ height: `${imageHeight}px` }}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    title={image.title || image.alt}
+                    width={image.width || imageWidth}
+                    height={image.height || imageHeight}
+                    quality={quality}
+                    priority={priority && idx < 3}
+                    className="object-cover w-full h-full border-2 border-white"
+                    loading={idx < 3 ? 'eager' : 'lazy'}
+                  />
+                </div>
+
+                {/* Visible Caption Below Image */}
+                {(image.caption || image.description) && (
+                  <figcaption className="mt-3 px-2 text-white/80 text-sm md:text-base text-center leading-relaxed">
+                    {image.caption || image.description}
+                  </figcaption>
+                )}
+
+                {/* Screen Reader Only Accessibility Text */}
+                <span className="sr-only">{image.alt}</span>
               </div>
             );
           })}
