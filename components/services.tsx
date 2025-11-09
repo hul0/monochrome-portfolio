@@ -1,35 +1,41 @@
+import { title } from "process";
+
 export function Services() {
   const services = [
     {
-      title: "UI/UX Design",
-      description:
-        "Strategic design solutions that combine aesthetics with functionality, creating intuitive user experiences.",
+      title: "Frontend Web Development",
+      description: "High quality, classy, cool, responsive Frontend for Websites",
     },
     {
-      title: "Web Development",
+      title: "Full Stack Web Development",
       description:
         "High-performance web applications built with modern technologies and optimized for speed and accessibility.",
     },
     {
-      title: "Design Systems",
+      title: "Search Engine Optimization",
       description:
-        "Scalable design systems and component libraries that ensure consistency across your digital products.",
+        "Rank #1 on every search engines with my Search Engine Optimization  (Kidding , you'll rank #2)",
     },
     {
-      title: "Brand Strategy",
-      description: "Comprehensive branding solutions including identity design, messaging, and visual guidelines.",
+      title: "App Development",
+      description:
+        "Impactful, fast and efficient android apps",
     },
     {
-      title: "Animation & Interaction",
+      title: "Cybersecurity Consultant",
       description:
-        "Thoughtful micro-interactions and animations that enhance user engagement without compromising performance.",
+        "Guidance and monitoring to protect your services from cyber threats",
     },
     {
-      title: "Consultation",
+      title: "Penetration Testing",
       description:
-        "Expert guidance on digital strategy, product development, and organizational design thinking practices.",
+        "Simulate real-world attack to know how vulnerable your services are.",
     },
-  ]
+    {
+      title:"Security Hardening",
+      description:"Setting FIrewalls, IDS/IPS, VPNs, Encryption, Monitoring, Educating Employees, Logs & Other blue teaming tactics to harden the security of your services"
+    }
+  ];
 
   return (
     <section
@@ -37,7 +43,9 @@ export function Services() {
       className="min-h-screen flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 md:py-0 border-t border-white/10"
     >
       <div className="max-w-5xl mx-auto w-full">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-16 tracking-tighter">Services</h2>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-16 tracking-tighter">
+          Services
+        </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <div
@@ -47,18 +55,28 @@ export function Services() {
               <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 group-hover:opacity-75 transition-opacity">
                 {service.title}
               </h3>
-              <p className="text-sm md:text-base text-white/70 leading-relaxed">{service.description}</p>
+              <p className="text-sm md:text-base text-white/70 leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
-        <div className="mt-16 md:mt-20 h-64 md:h-80 bg-white/5 border border-white/10 rounded overflow-hidden">
-          <img
-            src="/placeholder.svg?height=400&width=700"
-            alt="Services illustration"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div className="mt-16 md:mt-20 group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10">
+  <div className="flex flex-col items-center gap-4 p-6 md:flex-row md:gap-6 md:p-8">
+    <div className="relative w-full shrink-0 overflow-hidden rounded-md md:w-64 lg:w-80">
+      <img
+        src="/hulo-biral-cyber-security-transition-i-need.jpeg"
+        alt="Services illustration"
+        className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+      />
+    </div>
+    <h2 className="text-center text-lg font-semibold text-white/90 md:text-left md:text-xl lg:text-2xl align-middle">
+      The Transition I Need In My Career
+    </h2>
+  </div>
+</div>
+
       </div>
     </section>
-  )
+  );
 }
