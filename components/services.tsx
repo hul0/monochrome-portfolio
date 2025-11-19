@@ -1,81 +1,88 @@
-import { title } from "process";
+import { TerminalSquare } from "lucide-react";
 
 export function Services() {
   const services = [
     {
       title: "Frontend Web Development",
-      description: "High quality, classy, cool, responsive Frontend for Websites",
+      description: "High quality, responsive Frontend architectures.",
     },
     {
       title: "Full Stack Web Development",
-      description:
-        "High-performance web applications built with modern technologies and optimized for speed and accessibility.",
+      description: "High-performance web applications built with Next.js and modern tech.",
     },
     {
       title: "Search Engine Optimization",
-      description:
-        "Rank #1 on every search engines with my Search Engine Optimization  (Kidding , you'll rank #2)",
+      description: "Tactical SEO strategies to dominate search rankings.",
     },
     {
       title: "App Development",
-      description:
-        "Impactful, fast and efficient android apps",
+      description: "Efficient, impactful Android applications using Kotlin/Compose.",
     },
     {
       title: "Cybersecurity Consultant",
-      description:
-        "Guidance and monitoring to protect your services from cyber threats",
+      description: "Strategic guidance to fortify digital assets against threats.",
     },
     {
       title: "Penetration Testing",
-      description:
-        "Simulate real-world attack to know how vulnerable your services are.",
+      description: "Simulated attacks to expose and patch vulnerabilities.",
     },
     {
       title:"Security Hardening",
-      description:"Setting FIrewalls, IDS/IPS, VPNs, Encryption, Monitoring, Educating Employees, Logs & Other blue teaming tactics to harden the security of your services"
+      description:"Firewalls, IDS/IPS, Encryption & Blue Team defense implementations."
     }
   ];
 
   return (
     <section
       id="services"
-      className="min-h-screen flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 md:py-0 border-t border-white/10"
+      className="min-h-screen flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 bg-black border-t border-red-900/30"
     >
-      <div className="max-w-5xl mx-auto w-full">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-16 tracking-tighter">
-          Services
+      <div className="max-w-6xl mx-auto w-full">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-16 tracking-tighter text-white uppercase text-center">
+          <span className="text-red-600">Services</span> Offered
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="border border-white/10 hover:border-white/40 transition-colors duration-300 p-6 md:p-8 group"
+              className="relative group bg-black border border-red-900/30 p-6 hover:border-red-600 transition-all duration-300 hover:-translate-y-1"
             >
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 group-hover:opacity-75 transition-opacity">
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+              
+              <TerminalSquare className="w-8 h-8 text-red-800 group-hover:text-red-500 mb-4 transition-colors" />
+              
+              <h3 className="text-xl font-bold mb-3 text-white group-hover:text-red-500 font-mono">
                 {service.title}
               </h3>
-              <p className="text-sm md:text-base text-white/70 leading-relaxed">
-                {service.description}
+              <p className="text-gray-500 group-hover:text-gray-300 text-sm leading-relaxed font-mono">
+                &gt; {service.description}
               </p>
             </div>
           ))}
         </div>
-        <div className="mt-16 md:mt-20 group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10">
-  <div className="flex flex-col items-center gap-4 p-6 md:flex-row md:gap-6 md:p-8">
-    <div className="relative w-full shrink-0 overflow-hidden rounded-md md:w-64 lg:w-80">
-      <img
-        src="/hulo-biral-cyber-security-transition-i-need.jpeg"
-        alt="Services illustration"
-        className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
-      />
-    </div>
-    <h2 className="text-center text-lg font-semibold text-white/90 md:text-left md:text-xl lg:text-2xl align-middle">
-      The Transition I Need In My Career
-    </h2>
-  </div>
-</div>
-
+        
+        <div className="mt-20 group relative overflow-hidden border border-red-900/30 bg-red-950/5 hover:border-red-600 transition-all duration-300">
+            <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:gap-12">
+                <div className="relative w-full shrink-0 overflow-hidden md:w-80 border border-red-900/50 group-hover:border-red-500 transition-colors">
+                <img
+                    src="/hulo-biral-cyber-security-transition-i-need.jpeg"
+                    alt="Transition"
+                    className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
+                </div>
+                <div className="text-center md:text-left">
+                    <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">
+                        The Transition I Need
+                    </h2>
+                    <p className="text-gray-400 font-mono text-sm">
+                        "Every system has a flaw. I am just looking for the right exploit to upgrade my career."
+                    </p>
+                </div>
+            </div>
+        </div>
       </div>
     </section>
   );

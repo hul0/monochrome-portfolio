@@ -3,6 +3,7 @@ import { Header } from "@/components/header"
 import { TechBanner } from "@/components/tech-banner"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
+import { Certificates } from "@/components/certificates"
 import { HallOfFame } from "@/components/hallOfFame"
 import { Services } from "@/components/services"
 import { Testimonials } from "@/components/testimonials"
@@ -10,19 +11,19 @@ import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Hulo Biral - Cybersecurity | Start The Great Cyber Era",
-  description: "Start the Great Cyber era with Hulo Biral. My name is Roger. It's destiny, meeting you, I say. How about we team up and turn this whole world upside down? ",
+  title: "Hulo Biral | Red Team & Cybersecurity",
+  description: "Start the Great Cyber era with Hulo Biral. My name is Roger. It's destiny, meeting you. How about we team up and turn this whole world upside down?",
   openGraph: {
     type: "website",
     url: "https://hulobiral.online",
-    title: "Hulo Biral - Cybersecurity | The Great Cyber Era",
-    description: "Start the Great Cyber era with Hulo Biral. How about we team up and turn this whole world upside down",
+    title: "Hulo Biral | The Great Cyber Era",
+    description: "Start the Great Cyber era with Hulo Biral.",
     images: [
       {
         url: "/og-image-hulo-biral-cyber-security.jpg",
         width: 1200,
         height: 630,
-        alt: "The open graph image for hulo biral cyber security",
+        alt: "Hulo Biral Cybersecurity",
       },
     ],
   },
@@ -32,10 +33,11 @@ export default function Home() {
   return (
     <>
       <Header />
-      <TechBanner />
-      <main className="overflow-x-hidden">
+      <main className="overflow-x-hidden bg-black text-white selection:bg-red-600 selection:text-white">
         <Hero />
+        <TechBanner />
         <About />
+        <Certificates />
         <HallOfFame />
         <Services />
         <Testimonials />
