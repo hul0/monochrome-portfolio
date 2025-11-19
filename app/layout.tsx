@@ -69,7 +69,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${_geistMono.className} font-sans antialiased bg-black text-white pb-[10vh] sm:pb-[11vh] md:pb-[12vh]`}>
-        {children}
+        <div className="blur-[5px]">
+          {children}
+        </div>
         <GlobalSecurityBanner />
         <Analytics />
       </body>
