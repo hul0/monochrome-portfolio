@@ -42,7 +42,7 @@ export function Hero() {
         </div>
         
         <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto font-mono leading-relaxed border-l-2 border-red-600 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
-          "Identity: <span className="text-red-500 font-bold">Hulo Biral</span>. Status: Online. <br className="hidden md:block"/>
+          "Identity: <span className="text-red-500 font-bold text-shadow-red">Hulo Biral</span>. Status: <span className="text-green-400 font-bold text-shadow-green-600">Online</span> <br />
           It's destiny, meeting you. Let's dismantle the system and build a new world order."
         </p>
 
