@@ -1,0 +1,13 @@
+- Dedicated section for certificate showcasing
+- Background Changes
+- Major UI Style Changes (One Piece Themed)
+- Custom Cursors
+- More Interactive (Polls , Total page views , Surveys)
+- Better Image UI
+- Category Based Skills section
+- Tools => I Use & I Made
+- Smooth Animations using a animation library
+- Better Button Links
+- Dedicated about me => My story | Reason i do these | Some special stories | My Dream
+- Animated Backgrounds
+- reactbits components
