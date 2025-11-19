@@ -23,44 +23,74 @@ export function Hero() {
   const [isPlayerOpen, setIsPlayerOpen] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 md:pt-0 px-4 md:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-balance leading-tight md:leading-tight lg:leading-tight">
-          Start the Great Cyber era with Hulo
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20 md:pt-0 px-4 md:px-6 lg:px-8">
+      
+      {/* Background Video Layer */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark Overlay for text readability */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-100"
+        >
+          {/* Using a sample cyber/matrix style video background */}
+          <source src="https://www.pexels.com/download/video/3141207/" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-balance leading-tight md:leading-tight lg:leading-tight text-white">
+          Start the <span className="text-green-500">Great Cyber Era</span> with Hulo
         </h1>
-        <p className="text-base md:text-lg lg:text-xl text-white/70 max-w-2xl mx-auto text-balance leading-relaxed md:leading-relaxed">
-          "My name is Hulo. It's destiny, meeting you, I say. How about we team up and turn this whole world upside down?" <br /> Lets start The Great Cyber Era.
+        
+        <p className="text-base md:text-lg lg:text-xl text-green-500/80 max-w-2xl mx-auto text-balance leading-relaxed md:leading-relaxed font-mono">
+          "My name is Hulo. It's destiny, meeting you, I say. How about we team
+          up and turn this whole world upside down?"
+          <br /> 
+          <span className="text-green-400 font-bold">Lets start The Great Cyber Era.</span>
         </p>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 md:pt-8">
-          <button className="px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300 font-medium">
-            <a href="#about" rel="noopener noreferrer">
-              Inspect Me
-            </a>
-          </button>
-          <button className="px-8 py-3 bg-white text-black hover:opacity-90 transition-opacity duration-300 font-medium">
-            <a href="#contact" rel="noopener noreferrer">
-              Join The Crew
-            </a>
-          </button>
+          {/* Fixed: Removed <button> wrapping <a>. Applied button styles directly to <a> */}
+          <a 
+            href="#about" 
+            rel="noopener noreferrer"
+            className="px-8 py-3 border border-green-500 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] transition-all duration-300 font-medium font-mono uppercase tracking-wider"
+          >
+            Inspect Me
+          </a>
+          
+          <a 
+            href="#contact" 
+            rel="noopener noreferrer"
+            className="px-8 py-3 bg-green-600 text-black hover:bg-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] transition-all duration-300 font-medium font-mono uppercase tracking-wider"
+          >
+            Join The Crew
+          </a>
         </div>
 
         {/* Optimized Image */}
         <div className="pt-8 md:pt-12 flex justify-center">
-          <div className="relative w-fit max-w-md h-fit md:h-fit bg-white/5 border border-white/10 rounded overflow-hidden">
+          <div className="relative w-fit max-w-md h-fit md:h-fit bg-black border border-green-500/30 rounded overflow-hidden shadow-[0_0_30px_rgba(34,197,94,0.15)]">
             <Image
               src="/hulo-biral-cyber-security-great-cyber-era.jpg"
               alt="Start the great cyber era with Hulo Biral - Cybersecurity expert and hacker"
-              className="object-cover"
+              className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
               height={300}
               width={400}
               priority={false}
             />
+            {/* Scanline effect overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] pointer-events-none opacity-20"></div>
           </div>
         </div>
 
         <div className="pt-4 md:pt-8">
           <svg
-            className="w-6 h-6 md:w-8 md:h-8 mx-auto animate-bounce"
+            className="w-6 h-6 md:w-8 md:h-8 mx-auto animate-bounce text-green-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -78,7 +108,7 @@ export function Hero() {
       {/* Floating Music Player Button */}
       <button
         onClick={() => setIsPlayerOpen(!isPlayerOpen)}
-        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 p-3 md:p-4 bg-white text-black rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
+        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 p-3 md:p-4 bg-black text-green-500 border border-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:scale-110 hover:bg-green-900/20 transition-all duration-300"
         aria-label="Toggle music player"
       >
         <svg
@@ -91,19 +121,19 @@ export function Hero() {
         </svg>
       </button>
 
-      {/* Floating Music Player Panel - Always mounted but visibility controlled */}
+      {/* Floating Music Player Panel */}
       <div
-        className={`fixed bottom-20 md:bottom-24 right-4 md:right-6 z-50 bg-black/90 backdrop-blur-sm border border-white/10 rounded-lg shadow-2xl p-3 md:p-4 w-[calc(100vw-2rem)] max-w-[320px] md:max-w-[380px] transition-all duration-300 ${
+        className={`fixed bottom-20 md:bottom-24 right-4 md:right-6 z-50 bg-black/95 backdrop-blur-md border border-green-500/30 rounded-lg shadow-[0_0_25px_rgba(34,197,94,0.1)] p-3 md:p-4 w-[calc(100vw-2rem)] max-w-[320px] md:max-w-[380px] transition-all duration-300 ${
           isPlayerOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="flex justify-between items-center mb-3">
-          <p className="text-sm font-medium">Music Player</p>
+        <div className="flex justify-between items-center mb-3 border-b border-green-500/20 pb-2">
+          <p className="text-sm font-medium text-green-500 font-mono tracking-widest">SYSTEM_AUDIO</p>
           <button
             onClick={() => setIsPlayerOpen(false)}
-            className="text-white/70 hover:text-white transition-colors"
+            className="text-green-700 hover:text-green-400 transition-colors"
             aria-label="Close music player"
           >
             <svg
@@ -121,11 +151,15 @@ export function Hero() {
             </svg>
           </button>
         </div>
-        <MusicPlayer
-          playlist={demoPlaylist}
-          autoPlay={false}
-          showPlaylist={false}
-        />
+        
+        {/* Wrapper to style inner MusicPlayer if it accepts className, otherwise container handles some styling */}
+        <div className="[&_*]:text-green-500 [&_*]:border-green-500/30"> 
+            <MusicPlayer
+            playlist={demoPlaylist}
+            autoPlay={false}
+            showPlaylist={false}
+            />
+        </div>
       </div>
     </section>
   );
