@@ -1,6 +1,20 @@
+"use client";
+
+import { useRef } from "react";
 import { Award, ExternalLink } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export function Certificates() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Parallax for header vs grid
+  const headerY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const gridY = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
+
   const certificates = [
     {
       title: "Introduction to Cybersecurity",
@@ -32,27 +46,68 @@ export function Certificates() {
     },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <section id="certificates" className="min-h-[80vh] flex flex-col justify-center px-4 md:px-6 lg:px-8 py-20 bg-black border-t border-red-900/30">
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-red-800 pb-4">
+    <section 
+      ref={containerRef}
+      id="certificates" 
+      className="min-h-[80vh] flex flex-col justify-center px-4 md:px-6 lg:px-8 py-20 bg-black border-t border-red-900/30 overflow-hidden"
+    >
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <motion.div 
+          style={{ y: headerY }}
+          className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-red-800 pb-4"
+        >
           <div>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-2">
+            <motion.h2 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-2"
+            >
               CERTIFICATE <span className="text-red-600">VAULT</span>
-            </h2>
-            <p className="text-red-500/60 font-mono text-sm">
+            </motion.h2>
+            <motion.p 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.2 }}
+               className="text-red-500/60 font-mono text-sm"
+            >
               // VERIFIED_CREDENTIALS_DB
-            </p>
+            </motion.p>
           </div>
           <div className="hidden md:block text-right">
             <p className="text-xs font-mono text-gray-500">TOTAL_ENTRIES: {certificates.length}</p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          style={{ y: gridY }}
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {certificates.map((cert, index) => (
-            <div 
+            <motion.div 
               key={index}
+              variants={item}
               className="group relative bg-[#050505] border border-red-900/30 overflow-hidden hover:border-red-600 transition-all duration-300"
             >
               {/* Top Bar */}
@@ -92,9 +147,9 @@ export function Certificates() {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

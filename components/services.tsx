@@ -1,6 +1,21 @@
+"use client";
+
+import { useRef } from "react";
 import { TerminalSquare } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export function Services() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Different parallax speeds for columns
+  const yColumn1 = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
+  const yColumn2 = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
+  const yColumn3 = useTransform(scrollYProgress, [0, 1], ["0%", "-2%"]);
+
   const services = [
     {
       title: "Frontend Web Development",
@@ -32,21 +47,39 @@ export function Services() {
     }
   ];
 
+  // Group services into columns for parallax effect
+  const getColumnY = (index: number) => {
+    if (index % 3 === 0) return yColumn1;
+    if (index % 3 === 1) return yColumn2;
+    return yColumn3;
+  };
+
   return (
     <section
+      ref={containerRef}
       id="services"
-      className="min-h-screen flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 bg-black border-t border-red-900/30"
+      className="min-h-screen flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 bg-black border-t border-red-900/30 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto w-full">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-16 tracking-tighter text-white uppercase text-center">
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-5xl lg:text-6xl font-black mb-16 tracking-tighter text-white uppercase text-center"
+        >
           <span className="text-red-600">Services</span> Offered
-        </h2>
+        </motion.h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative group bg-black border border-red-900/30 p-6 hover:border-red-600 transition-all duration-300 hover:-translate-y-1"
+              style={{ y: getColumnY(index) }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative group bg-black border border-red-900/30 p-6 hover:border-red-600 transition-colors duration-300"
             >
               {/* Corner Accents */}
               <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -60,11 +93,17 @@ export function Services() {
               <p className="text-gray-500 group-hover:text-gray-300 text-sm leading-relaxed font-mono">
                 &gt; {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
         
-        <div className="mt-20 group relative overflow-hidden border border-red-900/30 bg-red-950/5 hover:border-red-600 transition-all duration-300">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-20 group relative overflow-hidden border border-red-900/30 bg-red-950/5 hover:border-red-600 transition-all duration-300"
+        >
             <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:gap-12">
                 <div className="relative w-full shrink-0 overflow-hidden md:w-80 border border-red-900/50 group-hover:border-red-500 transition-colors">
                 <img
@@ -82,7 +121,7 @@ export function Services() {
                     </p>
                 </div>
             </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

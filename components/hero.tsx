@@ -2,8 +2,9 @@
 
 import { MusicPlayer } from "./musicPlayer";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Scan, Target, Zap } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const demoPlaylist = [
   {
@@ -15,12 +16,24 @@ const demoPlaylist = [
 
 export function Hero() {
   const [isPlayerOpen, setIsPlayerOpen] = useState(false);
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20 md:pt-0 px-4 md:px-6 lg:px-8">
+    <section ref={targetRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20 md:pt-0 px-4 md:px-6 lg:px-8">
       
-      {/* Background Grid & Overlay */}
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#1a0000_1px,transparent_1px),linear-gradient(to_bottom,#1a0000_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      {/* Background Grid & Overlay with Parallax */}
+      <motion.div 
+        style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "20%"]) }}
+        className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#1a0000_1px,transparent_1px),linear-gradient(to_bottom,#1a0000_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" 
+      />
       
       {/* Video Background (Optional) */}
       <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen">
@@ -28,25 +41,48 @@ export function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-12">
+      <motion.div 
+        style={{ y, opacity, scale }}
+        className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-12"
+      >
         <div className="space-y-4">
-          <div className="inline-block border border-red-600/30 bg-red-950/10 px-3 py-1 rounded-none backdrop-blur-md mb-4">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block border border-red-600/30 bg-red-950/10 px-3 py-1 rounded-none backdrop-blur-md mb-4"
+          >
             <span className="text-red-500 font-mono text-xs md:text-sm tracking-[0.2em] uppercase animate-pulse flex items-center gap-2">
               <Zap className="w-3 h-3" /> System Breach Detected
             </span>
-          </div>
+          </motion.div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase mix-blend-difference">
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase mix-blend-difference"
+          >
             INITIATE <span className="text-red-600 text-shadow-red">RED TEAM</span><br/>PROTOCOL
-          </h1>
+          </motion.h1>
         </div>
         
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto font-mono leading-relaxed border-l-2 border-red-600 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
+        <motion.p 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto font-mono leading-relaxed border-l-2 border-red-600 pl-6 text-left md:text-center md:border-l-0 md:pl-0"
+        >
           "Identity: <span className="text-red-500 font-bold">Hulo Biral</span>. Status: Online. <br className="hidden md:block"/>
           It's destiny, meeting you. Let's dismantle the system and build a new world order."
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4 md:pt-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-6 justify-center pt-4 md:pt-8"
+        >
           <a 
             href="#about" 
             className="group relative px-8 py-4 bg-transparent overflow-hidden border border-red-600 text-red-600 font-mono uppercase tracking-widest hover:text-black transition-all duration-300"
@@ -61,10 +97,15 @@ export function Hero() {
           >
             <span className="relative flex items-center gap-2"><Target className="w-4 h-4" /> Join_The_Syndicate</span>
           </a>
-        </div>
+        </motion.div>
 
         {/* INFINITE SCANNING IMAGE CONTAINER */}
-        <div className="pt-12 flex justify-center relative z-20">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="pt-12 flex justify-center relative z-20"
+        >
           <div className="relative group cursor-crosshair">
             
             {/* Tech Ring Rotating */}
@@ -142,7 +183,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <div className="pt-8">
           <svg
@@ -154,7 +195,7 @@ export function Hero() {
             <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
-      </div>
+      </motion.div>
 
       {/* Floating Music Player */}
       <div className="fixed bottom-6 right-6 z-50">

@@ -1,4 +1,5 @@
 "use client";
+import { useRef } from "react";
 import {
   Award,
   Wrench,
@@ -15,11 +16,22 @@ import {
   Cpu,
   Book
 } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import ImageGallery from "./imageGallery";
 import { ImageDatas } from "./imageGallery";
 
 export function HallOfFame() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Parallax effect: one column goes up, other goes down/stays
+  const leftColY = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
+  const rightColY = useTransform(scrollYProgress, [0, 1], ["5%", "0%"]);
+
   const ImagesThatMatter: ImageDatas[] = [
     {
       src: "/hulo-biral-cyber-security-eminem-glow.jpeg",
@@ -37,7 +49,6 @@ export function HallOfFame() {
       width: 600,
       height: 800,
     },
-     // ... existing images kept same, just ensuring logic flows
      {
       src: "/hulo-biral-cyber-security-idols.jpg",
       alt: "Idols",
@@ -115,54 +126,88 @@ export function HallOfFame() {
   ];
 
   return (
-    <section id="achievements" className="min-h-screen flex flex-col items-center justify-center px-4 md:px-6 lg:px-8 py-20 border-t border-red-900/30 bg-black">
+    <section 
+      ref={containerRef}
+      id="achievements" 
+      className="min-h-screen flex flex-col items-center justify-center px-4 md:px-6 lg:px-8 py-20 border-t border-red-900/30 bg-black overflow-hidden"
+    >
       <div className="max-w-6xl mx-auto w-full space-y-24">
         
         {/* Intro */}
-        <div className="text-center space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center space-y-4"
+        >
            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase">
              <span className="text-red-600">ARSENAL</span> & <span className="text-red-600">TROPHIES</span>
            </h2>
            <div className="w-24 h-1 bg-red-600 mx-auto"></div>
-        </div>
+        </motion.div>
 
-        {/* Tools Section - Split */}
+        {/* Tools Section - Split with Parallax */}
         <div className="grid lg:grid-cols-2 gap-12">
            {/* Tools I Use */}
-           <div className="space-y-6">
+           <motion.div 
+            style={{ y: leftColY }}
+            className="space-y-6"
+           >
              <div className="flex items-center gap-3 border-b border-red-900/50 pb-3">
                <Wrench className="text-red-500" />
                <h3 className="text-2xl font-bold text-white font-mono">TOOLS_I_USE</h3>
              </div>
              <div className="flex flex-wrap gap-2">
                {toolsUsed.map((tool, idx) => (
-                 <span key={idx} className="px-3 py-1 bg-[#111] border border-red-900/30 text-xs font-mono text-gray-300 hover:border-red-500 hover:text-white transition-colors cursor-default">
+                 <motion.span 
+                   key={idx} 
+                   initial={{ opacity: 0 }}
+                   whileInView={{ opacity: 1 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: idx * 0.01 }}
+                   className="px-3 py-1 bg-[#111] border border-red-900/30 text-xs font-mono text-gray-300 hover:border-red-500 hover:text-white transition-colors cursor-default"
+                 >
                    {tool}
-                 </span>
+                 </motion.span>
                ))}
              </div>
-           </div>
+           </motion.div>
 
            {/* Tools I Made */}
-           <div className="space-y-6">
+           <motion.div 
+            style={{ y: rightColY }}
+            className="space-y-6"
+           >
              <div className="flex items-center gap-3 border-b border-red-900/50 pb-3">
                <Hammer className="text-red-500" />
                <h3 className="text-2xl font-bold text-white font-mono">TOOLS_I_MADE</h3>
              </div>
              <div className="space-y-3">
                {toolsMade.map((tool, idx) => (
-                 <div key={idx} className="flex items-center justify-between p-3 bg-red-950/10 border border-red-900/30 hover:bg-red-900/20 transition-colors group">
+                 <motion.div 
+                    key={idx} 
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex items-center justify-between p-3 bg-red-950/10 border border-red-900/30 hover:bg-red-900/20 transition-colors group"
+                  >
                    <span className="text-sm font-mono text-white group-hover:text-red-400">{tool}</span>
                    <Cpu className="w-4 h-4 text-red-900 group-hover:text-red-500" />
-                 </div>
+                 </motion.div>
                ))}
              </div>
-           </div>
+           </motion.div>
         </div>
 
         {/* TryHackMe & Achievements */}
         <div className="grid md:grid-cols-2 gap-8 items-start">
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
              <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
                <LucideComputer className="text-red-500" /> LIVE_STATUS
              </h3>
@@ -177,9 +222,15 @@ export function HallOfFame() {
                     className="filter grayscale hover:grayscale-0 transition-all duration-500"
                 ></iframe>
              </div>
-          </div>
+          </motion.div>
 
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="space-y-6"
+          >
             <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
                <Award className="text-red-500" /> UNLOCKED_ACHIEVEMENTS
              </h3>
@@ -191,18 +242,23 @@ export function HallOfFame() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Image Gallery & Quote */}
         <div className="space-y-12 pt-12 border-t border-red-900/30">
-           <div className="text-center">
+           <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center"
+           >
              <MessageSquare className="w-8 h-8 text-red-600 mx-auto mb-4" />
              <blockquote className="text-xl md:text-2xl font-mono text-white italic max-w-4xl mx-auto leading-relaxed border-l-4 border-red-600 pl-6">
                "{quote.text}"
              </blockquote>
              <cite className="block mt-4 text-red-500 font-bold tracking-widest">— {quote.author}</cite>
-           </div>
+           </motion.div>
 
            <div className="p-4 border border-red-900/30 bg-black">
              <ImageGallery
@@ -221,7 +277,12 @@ export function HallOfFame() {
         </div>
 
         {/* Footer Links */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-4 md:gap-8"
+        >
             {socialLinks.map((link, index) => {
               const Icon = link.icon;
               return (
@@ -236,7 +297,7 @@ export function HallOfFame() {
                 </a>
               );
             })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,15 +1,38 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
 export function CTA() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   return (
     <section
+      ref={containerRef}
       id="contact"
       className="min-h-[70vh] flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 bg-black border-t border-red-900/30 relative overflow-hidden"
     >
-      {/* Bg Effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/10 to-transparent pointer-events-none" />
+      {/* Bg Effect with Parallax */}
+      <motion.div 
+        style={{ y }}
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/10 to-transparent pointer-events-none" 
+      />
 
       <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 relative z-10">
         {/* Profile Image Section */}
-        <div className="flex justify-center lg:justify-end order-2 lg:order-1">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center lg:justify-end order-2 lg:order-1"
+        >
           <div className="relative group">
             <div className="absolute -inset-1 bg-red-600 rounded-full opacity-20 group-hover:opacity-50 blur-md transition-all duration-500"></div>
             <img
@@ -18,10 +41,16 @@ export function CTA() {
               className="relative w-64 h-64 object-cover rounded-full border-4 border-red-900 group-hover:border-red-500 transition-all duration-300 grayscale group-hover:grayscale-0"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Text and CTA Section */}
-        <div className="text-center lg:text-left space-y-8 order-1 lg:order-2">
+        <motion.div 
+           initial={{ opacity: 0, x: 50 }}
+           whileInView={{ opacity: 1, x: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+           className="text-center lg:text-left space-y-8 order-1 lg:order-2"
+        >
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">
             READY TO <span className="text-red-600 hover-glitch">COLLAB?</span>
           </h2>
@@ -49,7 +78,7 @@ export function CTA() {
           <p className="text-xs text-red-800 font-mono mt-8">
             // WARNING: NO PHISHING ATTEMPTS WILL BE TOLERATED
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,16 +1,41 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 export function Testimonials() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9]);
+
   return (
     <section
+      ref={containerRef}
       id="testimonials"
-      className="min-h-[50vh] flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 border-t border-red-900/30 bg-black"
+      className="min-h-[50vh] flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 border-t border-red-900/30 bg-black overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto w-full text-center">
-        <h2 className="text-3xl md:text-5xl font-black mb-12 tracking-tighter text-white uppercase">
+      <motion.div 
+        style={{ y, scale }}
+        className="max-w-5xl mx-auto w-full text-center"
+      >
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-black mb-12 tracking-tighter text-white uppercase"
+        >
           CLIENT <span className="text-red-600">LOGS</span>
-        </h2>
+        </motion.h2>
 
         {/* Empty State */}
-        <div className="border border-red-900/30 bg-red-950/5 rounded-none p-12 relative overflow-hidden group hover:border-red-600 transition-colors">
+        <div
+          className="border border-red-900/30 bg-red-950/5 rounded-none p-12 relative overflow-hidden group hover:border-red-600 transition-colors"
+        >
           <div className="absolute top-0 left-0 w-full h-1 bg-red-600/20" />
           
           <div className="space-y-6 relative z-10">
@@ -36,7 +61,7 @@ export function Testimonials() {
              // DATA WILL BE ENCRYPTED AND STORED SECURELY
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
