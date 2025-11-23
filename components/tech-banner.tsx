@@ -10,16 +10,30 @@ export function TechBanner() {
   ];
 
   return (
-    <section className="glass border-y border-white/5 py-8 relative z-10">
-      <div className="flex flex-wrap justify-center gap-4 px-4 max-w-7xl mx-auto">
-        {techItems.map((item, index) => (
-          <span
-            key={index}
-            className="glass px-4 py-2 rounded-4xl text-white/60 text-xs font-mono font-bold uppercase tracking-wider hover:text-primary hover:bg-white/5 transition-all cursor-default border border-transparent hover:border-primary/30"
-          >
-            {item}
-          </span>
-        ))}
+    <section className="glass border-y border-white/10 py-8 relative z-10 overflow-hidden">
+      <div className="flex animate-banner-slide gap-8">
+        {/* Original List */}
+        <div className="flex gap-8 items-center">
+          {techItems.map((item, index) => (
+            <span
+              key={`a-${index}`}
+              className="glass px-6 py-3 rounded-4xl text-white/70 text-sm font-mono font-bold uppercase tracking-wider hover:text-primary hover:bg-white/10 transition-all cursor-default border border-white/5 hover:border-primary/50 whitespace-nowrap"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+        {/* Duplicate List for Seamless Loop */}
+        <div className="flex gap-8 items-center">
+          {techItems.map((item, index) => (
+            <span
+              key={`b-${index}`}
+              className="glass px-6 py-3 rounded-4xl text-white/70 text-sm font-mono font-bold uppercase tracking-wider hover:text-primary hover:bg-white/10 transition-all cursor-default border border-white/5 hover:border-primary/50 whitespace-nowrap"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   )
