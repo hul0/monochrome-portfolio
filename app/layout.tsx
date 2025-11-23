@@ -1,24 +1,17 @@
 import type React from "react"
 import type { Metadata } from "next"
-
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-
-import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
-import { SmoothScroll } from "@/components/smooth-scroll"
+import { Geist_Mono as FontGeistMono } from 'next/font/google'
 
 // Initialize fonts
-const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+const geistMono = FontGeistMono({ subsets: ['latin'], variable: '--font-mono' })
 
 export const metadata: Metadata = {
   title: "Hulo Biral : Cybersecurity | The Great Cyber Era",
-  description: "Start the Great Cyber era with Hulo Biral. How about we team up and turn this whole world upside down?",
+  description: "Start the Great Cyber era with Hulo Biral.",
   icons: {
-    icon: [
-      {
-        url: "/hulo-biral-cyber-security-pfp.jpeg"
-      }
-    ],
+    icon: [{ url: "/hulo-biral-cyber-security-pfp.jpeg" }],
     apple: "/hulo-biral-cyber-security-pfp.jpeg",
   },
 }
@@ -29,11 +22,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="font-sans antialiased bg-black text-white">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+    <html lang="en">
+      <body className={`${geistMono.variable} font-sans antialiased`}>
+        {children}
         <Analytics />
       </body>
     </html>

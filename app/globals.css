@@ -1,53 +1,67 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #000000;
+  /* Core Palette - Deep Reds & Absolute Blacks */
+  --background: #3f3f3f;
   --foreground: #ffffff;
-  --card: #0a0a0a;
+  
+  --primary: #ff0000;        /* Bright Red */
+  --primary-dark: #bf0000;   /* Deep Red */
+  --secondary: #800000;      /* Maroon */
+  --tertiary: #400000;       /* Dark Blood */
+  
+  --card: rgba(20, 0, 0, 0.4);
   --card-foreground: #ffffff;
   --popover: #000000;
   --popover-foreground: #ffffff;
-  --primary: #ff0000;
-  --primary-foreground: #000000;
-  --secondary: #111111;
-  --secondary-foreground: #ff0000;
+  
   --muted: #1a1a1a;
   --muted-foreground: #888888;
   --accent: #1a0000;
   --accent-foreground: #ff0000;
+  
   --destructive: #ff0000;
   --destructive-foreground: #ffffff;
-  --border: #330000;
-  --input: #1a0000;
+  
+  --border: rgba(255, 0, 0, 0.15);
+  --input: rgba(64, 0, 0, 0.3);
   --ring: #ff0000;
-  --radius: 0rem;
+  --radius: 2rem; /* rounded-4xl approx */
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: "Geist", "Geist Fallback", sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+  
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @layer base {
@@ -71,9 +85,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ff0000" stroke-width="2"><line x1="12" y1="0" x2="12" y2="24"/><line x1="0" y1="12" x2="24" y2="12"/><circle cx="12" cy="12" r="8" stroke="%23ff0000" fill="none"/></svg>')
-        12 12,
-      auto;
+    background: radial-gradient(circle at 50% 0%, #200000 0%, #000000 60%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    /* Custom Red Crosshair Cursor */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ff0000" stroke-width="2"><line x1="12" y1="0" x2="12" y2="24"/><line x1="0" y1="12" x2="24" y2="12"/><circle cx="12" cy="12" r="8" stroke="%23ff0000" fill="none"/></svg>') 12 12, auto;
   }
   ::selection {
     @apply bg-red-600 text-white;
@@ -85,169 +101,150 @@
     text-wrap: balance;
   }
   .text-shadow-red {
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
   }
   .box-glow {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
   }
-  .border-glow {
-    box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.1);
+  
+  /* --- DAMN AWESOME GLASSMORPHISM --- */
+  
+  .glass {
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+    /* Subtle red tint reflection */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 0, 0, 0.02) 100%);
+  }
+
+  .glass-card {
+    @apply bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.2));
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .glass-card:hover {
+    @apply border-primary/40 shadow-[0_0_30px_rgba(255,0,0,0.15)];
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(20, 0, 0, 0.4));
+  }
+
+  .glass-button {
+    @apply bg-white/5 backdrop-blur-md border border-white/20 text-white transition-all duration-300 ease-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-button:hover {
+    @apply bg-primary text-black border-primary;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .glass-input {
+    @apply bg-black/20 backdrop-blur-md border border-white/10 text-white placeholder-white/30 transition-all duration-300;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .glass-input:focus {
+    @apply border-primary/60 outline-none ring-1 ring-primary/50;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.1), inset 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.3);
   }
 }
 
+/* --- SCROLLBAR CUSTOMIZATION --- */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #050505;
 }
 ::-webkit-scrollbar-thumb {
   background: #330000;
-  border: 1px solid #ff0000;
+  border-radius: 10px;
+  border: 1px solid #000;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #660000;
+  background: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
 }
 
+/* --- ANIMATIONS --- */
+
 @keyframes slide-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .animate-slide {
   animation: slide-left 30s linear infinite;
 }
 
 @keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
 }
 .hover-glitch:hover {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
   color: #ff0000;
+  text-shadow: 2px 0 #000, -2px 0 #ff0000;
 }
 
 @keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 .animate-spin-slow {
   animation: spin-slow 12s linear infinite;
 }
 
 @keyframes flicker {
-  0%,
-  19.999%,
-  22%,
-  62.999%,
-  64%,
-  64.999%,
-  70%,
-  100% {
-    opacity: 1;
-  }
-  20%,
-  21.999%,
-  63%,
-  63.999%,
-  65%,
-  69.999% {
-    opacity: 0.5;
-  }
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.5; }
 }
 .animate-flicker {
   animation: flicker 2s infinite;
 }
-
-/* --- NEW SCANNING ANIMATIONS --- */
-
-/* Reveal then Hide Cycle */
-@keyframes cyber-scan-image {
-  0% {
-    clip-path: inset(0 0 100% 0);
-  } /* Fully hidden (bottom cropped) */
-  50% {
-    clip-path: inset(0 0 0 0);
-  } /* Fully visible */
-  100% {
-    clip-path: inset(100% 0 0 0);
-  } /* Fully hidden (top cropped) */
-}
-
-/* Line Movement (Runs twice per image cycle) */
-@keyframes cyber-scan-line {
-  0% {
-    top: 0%;
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  95% {
-    opacity: 1;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
-}
-
-.animate-cyber-image {
-  animation: cyber-scan-image 6s linear infinite;
-}
-
-.animate-cyber-line {
-  animation: cyber-scan-line 3s linear infinite;
-}
-
 .animate-flicker-fast {
   animation: flicker 0.5s infinite;
 }
 
-@keyframes banner-slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Cyber Scan Effect */
+@keyframes cyber-scan-image {
+  0% { clip-path: inset(0 0 100% 0); }
+  50% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(100% 0 0 0); }
+}
+.animate-cyber-image {
+  animation: cyber-scan-image 6s linear infinite;
 }
 
+@keyframes cyber-scan-line {
+  0% { top: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+.animate-cyber-line {
+  animation: cyber-scan-line 3s linear infinite;
+}
+
+@keyframes banner-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 .animate-banner-slide {
   animation: banner-slide 25s linear infinite;
 }
 
 @media (min-width: 640px) {
-  .animate-banner-slide {
-    animation-duration: 30s;
-  }
+  .animate-banner-slide { animation-duration: 30s; }
 }
-
 @media (min-width: 768px) {
-  .animate-banner-slide {
-    animation-duration: 35s;
-  }
+  .animate-banner-slide { animation-duration: 35s; }
 }

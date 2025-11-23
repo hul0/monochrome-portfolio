@@ -28,29 +28,29 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-red-900/30 py-12 bg-black text-gray-400 font-mono text-sm">
+    <footer className="border-t border-white/5 py-16 bg-black/40 backdrop-blur-lg text-gray-400 font-mono text-sm">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
           {/* Brand */}
           <div className="text-center lg:text-left min-w-[200px]">
-            <h3 className="font-bold text-white text-lg mb-2 tracking-wider">HULO_BIRAL</h3>
-            <p className="text-xs text-gray-600">
-              System Status: <span className="text-green-500 animate-pulse">ONLINE</span>
+            <h3 className="font-bold text-white text-2xl mb-2 tracking-wider">HULO_BIRAL</h3>
+            <p className="text-xs text-gray-500 glass px-3 py-1 rounded-full inline-block">
+              System Status: <span className="text-green-500 font-bold">ONLINE</span>
             </p>
           </div>
           
           {/* Links */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-4xl">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl">
             {socialLinks.map((link) => (
               <a 
                 key={link.name}
                 href={link.url} 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-red-500 transition-colors flex items-center gap-2 group"
+                className="hover:text-primary hover:bg-white/5 px-3 py-2 rounded-xl transition-all flex items-center gap-2 group"
                 aria-label={link.name}
               >
-                <link.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <link.icon className="w-4 h-4 group-hover:text-primary transition-colors" />
                 <span className="hidden md:inline font-bold text-xs tracking-wider">{link.name.toUpperCase()}</span>
               </a>
             ))}
@@ -58,8 +58,8 @@ export function Footer() {
 
           {/* Copyright */}
           <div className="text-center lg:text-right min-w-[200px]">
-            <p className="text-xs">© {currentYear} Hulo Biral.</p>
-            <p className="text-[10px] text-red-900 mt-1 tracking-widest">SECURED BY RED TEAM PROTOCOLS</p>
+            <p className="text-xs mb-2">© {currentYear} Hulo Biral.</p>
+            <p className="text-[10px] text-primary/60 tracking-widest border border-primary/20 px-2 py-1 rounded-lg inline-block">SECURED BY RED TEAM PROTOCOLS</p>
           </div>
         </div>
       </div>

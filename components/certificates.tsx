@@ -1,20 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import { Award, ExternalLink } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
 
 export function Certificates() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Parallax for header vs grid
-  const headerY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
-  const gridY = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
-
   const certificates = [
     {
       title: "Introduction to Cybersecurity",
@@ -46,82 +34,40 @@ export function Certificates() {
     },
   ];
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0 }
-  };
-
   return (
-    <section 
-      ref={containerRef}
-      id="certificates" 
-      className="min-h-[80vh] flex flex-col justify-center px-4 md:px-6 lg:px-8 py-20 bg-black border-t border-red-900/30 overflow-hidden"
-    >
-      <div className="max-w-6xl mx-auto w-full relative z-10">
-        <motion.div 
-          style={{ y: headerY }}
-          className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-red-800 pb-4"
-        >
+    <section id="certificates" className="min-h-[80vh] flex flex-col justify-center px-4 md:px-6 lg:px-8 py-24">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
           <div>
-            <motion.h2 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-2"
-            >
-              CERTIFICATE <span className="text-red-600">VAULT</span>
-            </motion.h2>
-            <motion.p 
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               viewport={{ once: true }}
-               transition={{ delay: 0.2 }}
-               className="text-red-500/60 font-mono text-sm"
-            >
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-2 text-glow">
+              CERTIFICATE <span className="text-primary">VAULT</span>
+            </h2>
+            <p className="text-primary/70 font-mono text-sm">
               // VERIFIED_CREDENTIALS_DB
-            </motion.p>
+            </p>
           </div>
           <div className="hidden md:block text-right">
-            <p className="text-xs font-mono text-gray-500">TOTAL_ENTRIES: {certificates.length}</p>
+            <p className="text-xs font-mono text-gray-400">TOTAL_ENTRIES: {certificates.length}</p>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          style={{ y: gridY }}
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert, index) => (
-            <motion.div 
+            <div 
               key={index}
-              variants={item}
-              className="group relative bg-[#050505] border border-red-900/30 overflow-hidden hover:border-red-600 transition-all duration-300"
+              className="group glass-card rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-300"
             >
               {/* Top Bar */}
-              <div className="flex justify-between items-center p-2 bg-red-950/10 border-b border-red-900/30">
-                 <span className="text-[10px] font-mono text-red-500/70">{cert.id}</span>
+              <div className="flex justify-between items-center p-3 bg-white/5 border-b border-white/10">
+                 <span className="text-[10px] font-mono text-primary/80">{cert.id}</span>
                  <div className="flex gap-1">
-                   <div className="w-2 h-2 rounded-full bg-red-900"></div>
-                   <div className="w-2 h-2 rounded-full bg-red-900"></div>
+                   <div className="w-2 h-2 rounded-full bg-primary"></div>
+                   <div className="w-2 h-2 rounded-full bg-secondary"></div>
                  </div>
               </div>
 
               {/* Image Container */}
-              <div className="relative aspect-video w-full overflow-hidden bg-white/5 p-4 flex items-center justify-center">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative aspect-video w-full overflow-hidden bg-black/40 p-6 flex items-center justify-center">
                 <img
                   src={cert.image}
                   alt={cert.title}
@@ -130,26 +76,24 @@ export function Certificates() {
               </div>
 
               {/* Content */}
-              <div className="p-5 relative">
-                <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-red-600/0 group-hover:border-red-600 transition-all duration-300" />
-                
-                <h3 className="text-lg font-bold text-white group-hover:text-red-500 transition-colors line-clamp-1">
+              <div className="p-6 relative">
+                <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors line-clamp-1">
                   {cert.title}
                 </h3>
-                <p className="text-sm text-gray-400 font-mono mt-1 mb-4">
+                <p className="text-sm text-gray-400 font-mono mt-1 mb-6">
                   Issued By: <span className="text-white">{cert.issuer}</span>
                 </p>
 
                 <div className="flex justify-between items-center pt-4 border-t border-white/10">
-                  <span className="text-xs font-mono text-red-500/50">YEAR: {cert.date}</span>
-                  <button className="text-xs flex items-center gap-1 text-white hover:text-red-500 transition-colors">
+                  <span className="text-xs font-mono text-primary/60">YEAR: {cert.date}</span>
+                  <button className="text-xs flex items-center gap-1 text-white hover:text-primary transition-colors px-3 py-1 glass rounded-4xl">
                     VIEW_PROOF <ExternalLink className="w-3 h-3" />
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

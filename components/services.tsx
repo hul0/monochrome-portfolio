@@ -1,21 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import { TerminalSquare } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
 
 export function Services() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Different parallax speeds for columns
-  const yColumn1 = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
-  const yColumn2 = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
-  const yColumn3 = useTransform(scrollYProgress, [0, 1], ["0%", "-2%"]);
-
   const services = [
     {
       title: "Frontend Web Development",
@@ -42,86 +29,57 @@ export function Services() {
       description: "Simulated attacks to expose and patch vulnerabilities.",
     },
     {
-      title:"Security Hardening",
-      description:"Firewalls, IDS/IPS, Encryption & Blue Team defense implementations."
+      title: "Security Hardening",
+      description: "Firewalls, IDS/IPS, Encryption & Blue Team defense implementations."
     }
   ];
 
-  // Group services into columns for parallax effect
-  const getColumnY = (index: number) => {
-    if (index % 3 === 0) return yColumn1;
-    if (index % 3 === 1) return yColumn2;
-    return yColumn3;
-  };
-
   return (
-    <section
-      ref={containerRef}
-      id="services"
-      className="min-h-screen flex items-center justify-center px-4 md:px-6 lg:px-8 py-20 bg-black border-t border-red-900/30 overflow-hidden"
-    >
-      <div className="max-w-6xl mx-auto w-full relative z-10">
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-5xl lg:text-6xl font-black mb-16 tracking-tighter text-white uppercase text-center"
-        >
-          <span className="text-red-600">Services</span> Offered
-        </motion.h2>
+    <section id="services" className="min-h-screen flex items-center justify-center px-4 md:px-6 lg:px-8 py-24">
+      <div className="max-w-6xl mx-auto w-full">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-20 tracking-tighter text-white uppercase text-center text-glow">
+          <span className="text-primary">Services</span> Offered
+        </h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              style={{ y: getColumnY(index) }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group bg-black border border-red-900/30 p-6 hover:border-red-600 transition-colors duration-300"
+              className="glass-card p-8 rounded-3xl hover:bg-white/10 transition-colors duration-300 group"
             >
-              {/* Corner Accents */}
-              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center mb-6 border border-primary/20 group-hover:border-primary">
+                <TerminalSquare className="w-6 h-6 text-primary" />
+              </div>
               
-              <TerminalSquare className="w-8 h-8 text-red-800 group-hover:text-red-500 mb-4 transition-colors" />
-              
-              <h3 className="text-xl font-bold mb-3 text-white group-hover:text-red-500 font-mono">
+              <h3 className="text-xl font-bold mb-4 text-white group-hover:text-primary font-mono">
                 {service.title}
               </h3>
-              <p className="text-gray-500 group-hover:text-gray-300 text-sm leading-relaxed font-mono">
+              <p className="text-gray-400 text-sm leading-relaxed font-mono">
                 &gt; {service.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
         
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-20 group relative overflow-hidden border border-red-900/30 bg-red-950/5 hover:border-red-600 transition-all duration-300"
-        >
-            <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:gap-12">
-                <div className="relative w-full shrink-0 overflow-hidden md:w-80 border border-red-900/50 group-hover:border-red-500 transition-colors">
-                <img
-                    src="/hulo-biral-cyber-security-transition-i-need.jpeg"
-                    alt="Transition"
-                    className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
+        <div className="mt-24 glass-card rounded-4xl overflow-hidden border border-primary/30">
+            <div className="flex flex-col items-center gap-8 p-10 md:flex-row md:gap-16">
+                <div className="relative w-full shrink-0 overflow-hidden md:w-80 rounded-3xl border border-white/10">
+                  <img
+                      src="/hulo-biral-cyber-security-transition-i-need.jpeg"
+                      alt="Transition"
+                      className="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  />
                 </div>
                 <div className="text-center md:text-left">
-                    <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">
+                    <h2 className="text-3xl font-bold text-white mb-4">
                         The Transition I Need
                     </h2>
-                    <p className="text-gray-400 font-mono text-sm">
+                    <p className="text-gray-300 font-mono text-base leading-relaxed">
                         "Every system has a flaw. I am just looking for the right exploit to upgrade my career."
                     </p>
                 </div>
             </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
