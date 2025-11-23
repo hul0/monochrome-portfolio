@@ -50,12 +50,7 @@ export default function ImageGallery({
   const animationRef = useRef<number>(0);
   const totalWidthRef = useRef(0);
 
-  // ... keep existing resize logic logic from previous file (omitted for brevity, assuming it works fine) ...
-  // Assuming standard scroll logic is here. 
-  // I will output the full component with the RED STYLING updates.
-  
-  // Re-implementing essential parts for completeness with new styling
-   const [responsiveWidth, setResponsiveWidth] = useState(imageWidth);
+  const [responsiveWidth, setResponsiveWidth] = useState(imageWidth);
   const [responsiveGap, setResponsiveGap] = useState(gap);
 
   useEffect(() => {
@@ -91,10 +86,10 @@ export default function ImageGallery({
 
 
   return (
-    <div className={`relative w-full overflow-hidden bg-black ${containerClassName}`}>
+    <div className={`relative w-full overflow-hidden bg-transparent ${containerClassName}`}>
       <div
         ref={scrollContainerRef}
-        className="relative py-8"
+        className="relative py-12"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -112,19 +107,28 @@ export default function ImageGallery({
                 className={`flex-shrink-0 group relative ${imageClassName}`}
                 style={{ width: `${imageWidth}px` }}
               >
-                <div className="relative overflow-hidden border-2 border-red-900/30 group-hover:border-red-600 transition-colors duration-300" style={{ height: `${imageHeight}px` }}>
+                {/* Glassmorphic Image Container with Fixed Purple Glow */}
+                <div 
+                  className="relative overflow-hidden rounded-2xl border-2 border-primary/30 bg-[#181818] shadow-[0_0_20px_rgba(168,85,247,0.25)] group-hover:border-primary group-hover:shadow-[0_0_35px_rgba(168,85,247,0.5)] transition-all duration-500 transform group-hover:-translate-y-2" 
+                  style={{ height: `${imageHeight}px` }}
+                >
                   <Image
                     src={image.src}
                     alt={image.alt}
                     width={image.width || imageWidth}
                     height={image.height || imageHeight}
-                    className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
-                  {/* Red overlay on hover */}
-                  <div className="absolute inset-0 bg-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none mix-blend-overlay" />
+                  
+                  {/* Luxurious Purple Gradient Overlay on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  {/* Scan line effect for extra cyber feel */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent opacity-0 group-hover:opacity-100 translate-y-[-100%] group-hover:translate-y-[100%] transition-all duration-1000 pointer-events-none" />
                 </div>
+                
                 {(image.caption) && (
-                  <figcaption className="mt-2 text-red-500/80 text-xs font-mono text-center uppercase tracking-wider">
+                  <figcaption className="mt-4 text-primary/80 text-xs font-mono text-center uppercase tracking-[0.2em] opacity-70 group-hover:opacity-100 transition-opacity duration-300 text-glow">
                     {image.caption}
                   </figcaption>
                 )}
