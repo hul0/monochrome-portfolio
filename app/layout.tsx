@@ -2,10 +2,15 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import { Geist_Mono as FontGeistMono } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-// Initialize fonts
-const geistMono = FontGeistMono({ subsets: ['latin'], variable: '--font-mono' })
+// Initialize Poppins font
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Hulo Biral : Cybersecurity | The Great Cyber Era",
@@ -23,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistMono.variable} font-sans antialiased`}>
+      <body className={`${poppins.variable} font-sans antialiased bg-background text-foreground selection:bg-primary selection:text-white`}>
         {children}
         <Analytics />
       </body>

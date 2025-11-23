@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export function Certificates() {
   const certificates = [
@@ -39,7 +39,7 @@ export function Certificates() {
       <div className="max-w-6xl mx-auto w-full">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
           <div>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-2 text-glow">
+            <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tighter mb-2 text-glow">
               CERTIFICATE <span className="text-primary">VAULT</span>
             </h2>
             <p className="text-primary/70 font-mono text-sm">
@@ -47,7 +47,7 @@ export function Certificates() {
             </p>
           </div>
           <div className="hidden md:block text-right">
-            <p className="text-xs font-mono text-gray-400">TOTAL_ENTRIES: {certificates.length}</p>
+            <p className="text-xs font-mono text-muted-foreground">TOTAL_ENTRIES: {certificates.length}</p>
           </div>
         </div>
 
@@ -55,19 +55,19 @@ export function Certificates() {
           {certificates.map((cert, index) => (
             <div 
               key={index}
-              className="group glass-card rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-300"
+              className="group glass-card rounded-3xl overflow-hidden hover:border-primary transition-all duration-300 border-primary/20"
             >
               {/* Top Bar */}
-              <div className="flex justify-between items-center p-3 bg-white/5 border-b border-white/10">
+              <div className="flex justify-between items-center p-3 bg-black/40 border-b border-white/5">
                  <span className="text-[10px] font-mono text-primary/80">{cert.id}</span>
                  <div className="flex gap-1">
                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                   <div className="w-2 h-2 rounded-full bg-secondary"></div>
+                   <div className="w-2 h-2 rounded-full bg-purple-400"></div>
                  </div>
               </div>
 
               {/* Image Container */}
-              <div className="relative aspect-video w-full overflow-hidden bg-black/40 p-6 flex items-center justify-center">
+              <div className="relative aspect-video w-full overflow-hidden bg-black/20 p-6 flex items-center justify-center">
                 <img
                   src={cert.image}
                   alt={cert.title}
@@ -80,13 +80,13 @@ export function Certificates() {
                 <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors line-clamp-1">
                   {cert.title}
                 </h3>
-                <p className="text-sm text-gray-400 font-mono mt-1 mb-6">
+                <p className="text-sm text-muted-foreground font-mono mt-1 mb-6">
                   Issued By: <span className="text-white">{cert.issuer}</span>
                 </p>
 
                 <div className="flex justify-between items-center pt-4 border-t border-white/10">
                   <span className="text-xs font-mono text-primary/60">YEAR: {cert.date}</span>
-                  <button className="text-xs flex items-center gap-1 text-white hover:text-primary transition-colors px-3 py-1 glass rounded-4xl">
+                  <button className="text-xs flex items-center gap-1 text-white hover:text-primary transition-colors px-3 py-1 glass rounded-4xl hover:bg-primary/20">
                     VIEW_PROOF <ExternalLink className="w-3 h-3" />
                   </button>
                 </div>

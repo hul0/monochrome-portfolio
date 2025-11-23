@@ -98,25 +98,25 @@ export function HallOfFame() {
         
         {/* Intro */}
         <div className="text-center space-y-6">
-           <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase text-glow">
+           <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground uppercase text-glow">
              <span className="text-primary">ARSENAL</span> & <span className="text-primary">TROPHIES</span>
            </h2>
-           <div className="w-32 h-1 bg-primary mx-auto rounded-full"></div>
+           <div className="w-32 h-1 bg-primary mx-auto rounded-full shadow-[0_0_25px_rgba(168,85,247,0.9)]"></div>
         </div>
 
         {/* Tools Section */}
         <div className="grid lg:grid-cols-2 gap-12">
            {/* Tools I Use */}
-           <div className="glass-card p-8 rounded-3xl space-y-6">
+           <div className="glass-card p-8 rounded-3xl space-y-6 border-primary/10">
              <div className="flex items-center gap-3 border-b border-white/10 pb-4">
-               <div className="p-2 bg-primary/10 rounded-xl"><Wrench className="text-primary" /></div>
+               <div className="p-2 bg-primary/10 rounded-xl shadow-[0_0_10px_rgba(168,85,247,0.3)]"><Wrench className="text-primary" /></div>
                <h3 className="text-2xl font-bold text-white font-mono">TOOLS_I_USE</h3>
              </div>
              <div className="flex flex-wrap gap-2">
                {toolsUsed.map((tool, idx) => (
                  <span 
                    key={idx} 
-                   className="px-3 py-1 bg-black/40 border border-white/5 rounded-full text-xs font-mono text-gray-300 hover:border-primary hover:text-white transition-colors cursor-default"
+                   className="px-3 py-1 bg-black/40 border border-white/5 rounded-full text-xs font-mono text-gray-300 hover:border-primary hover:text-white hover:bg-primary/10 transition-all cursor-default shadow-[0_0_10px_rgba(168,85,247,0.15)] hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
                  >
                    {tool}
                  </span>
@@ -125,18 +125,18 @@ export function HallOfFame() {
            </div>
 
            {/* Tools I Made */}
-           <div className="glass-card p-8 rounded-3xl space-y-6">
+           <div className="glass-card p-8 rounded-3xl space-y-6 border-primary/10">
              <div className="flex items-center gap-3 border-b border-white/10 pb-4">
-               <div className="p-2 bg-primary/10 rounded-xl"><Hammer className="text-primary" /></div>
+               <div className="p-2 bg-primary/10 rounded-xl shadow-[0_0_10px_rgba(168,85,247,0.3)]"><Hammer className="text-primary" /></div>
                <h3 className="text-2xl font-bold text-white font-mono">TOOLS_I_MADE</h3>
              </div>
              <div className="space-y-3">
                {toolsMade.map((tool, idx) => (
                  <div 
                     key={idx} 
-                    className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-transparent hover:border-primary/30 transition-all group"
+                    className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-transparent hover:border-primary/30 hover:bg-primary/5 transition-all group hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]"
                   >
-                   <span className="text-sm font-mono text-white">{tool}</span>
+                   <span className="text-sm font-mono text-white group-hover:text-primary transition-colors">{tool}</span>
                    <Cpu className="w-4 h-4 text-primary/50 group-hover:text-primary" />
                  </div>
                ))}
@@ -147,10 +147,10 @@ export function HallOfFame() {
         {/* TryHackMe & Achievements */}
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div className="space-y-6">
-             <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
+             <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2 text-glow">
                <LucideComputer className="text-primary" /> LIVE_STATUS
              </h3>
-             <div className="glass p-2 rounded-3xl border border-primary/30">
+             <div className="glass p-2 rounded-3xl border border-primary/30 hover:border-primary/60 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.15)] hover:shadow-[0_0_35px_rgba(168,85,247,0.3)]">
                 <div className="rounded-2xl overflow-hidden">
                   <iframe
                       src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1354938"
@@ -166,12 +166,12 @@ export function HallOfFame() {
           </div>
 
           <div className="space-y-6">
-            <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
+            <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2 text-glow">
                <Award className="text-primary" /> UNLOCKED_ACHIEVEMENTS
              </h3>
             <div className="space-y-3">
               {achievements.map((achievement, index) => (
-                <div key={index} className="flex items-center gap-4 glass p-4 rounded-2xl border-l-4 border-l-primary hover:bg-white/10 transition-colors">
+                <div key={index} className="flex items-center gap-4 glass-card p-4 rounded-2xl border-l-4 border-l-primary hover:bg-primary/10 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.1)]">
                   <div className="text-primary font-bold font-mono">0{index + 1}</div>
                   <span className="text-lg text-white font-mono">{achievement}</span>
                 </div>
@@ -183,27 +183,27 @@ export function HallOfFame() {
         {/* Image Gallery & Quote */}
         <div className="space-y-12 pt-12 border-t border-white/10">
            <div className="text-center">
-             <div className="w-16 h-16 mx-auto glass rounded-full flex items-center justify-center mb-6 border border-primary/30">
+             <div className="w-16 h-16 mx-auto glass rounded-full flex items-center justify-center mb-6 border border-primary/30 shadow-[0_0_30px_rgba(168,85,247,0.3)]">
                <MessageSquare className="w-8 h-8 text-primary" />
              </div>
-             <blockquote className="text-xl md:text-3xl font-mono text-white italic max-w-4xl mx-auto leading-relaxed">
+             <blockquote className="text-xl md:text-3xl font-mono text-white italic max-w-4xl mx-auto leading-relaxed text-shadow-purple">
                "{quote.text}"
              </blockquote>
-             <cite className="block mt-6 text-primary font-bold tracking-widest text-sm">— {quote.author}</cite>
+             <cite className="block mt-6 text-primary font-bold tracking-widest text-sm text-glow">— {quote.author}</cite>
            </div>
 
            <div className="p-6 glass-card rounded-3xl border border-primary/20">
              <ImageGallery
                 images={ImagesThatMatter}
-                autoScrollSpeed={50}
+                autoScrollSpeed={60}
                 autoScrollDirection="right"
-                imageWidth={300}
-                imageHeight={300}
+                imageWidth={200}
+                imageHeight={200}
                 gap={20}
                 quality={90}
-                showControls={false}
-                containerClassName="rounded-xl overflow-hidden"
-                imageClassName="rounded-xl border-2 border-transparent hover:border-primary transition-all"
+                showControls={true}
+                containerClassName="rounded-xl overflow-hidden bg-transparent"
+                imageClassName="rounded-xl border-2 border-transparent hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
              />
            </div>
         </div>
@@ -218,9 +218,9 @@ export function HallOfFame() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 glass rounded-full hover:bg-primary hover:text-black transition-all duration-300 group border border-white/10 hover:border-primary"
+                  className="p-4 glass rounded-full hover:bg-primary hover:text-white transition-all duration-300 group border border-white/10 hover:border-primary hover:scale-110 shadow-[0_0_15px_rgba(168,85,247,0.15)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
                 >
-                  <Icon className="w-6 h-6 text-white group-hover:text-black" />
+                  <Icon className="w-6 h-6 text-muted-foreground group-hover:text-white" />
                 </a>
               );
             })}

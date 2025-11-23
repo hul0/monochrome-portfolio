@@ -8,8 +8,8 @@ export function CTA() {
         {/* Profile Image Section */}
         <div className="flex justify-center lg:justify-end order-2 lg:order-1">
           <div className="relative group">
-            <div className="absolute -inset-4 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/40 transition-all duration-500"></div>
-            <div className="relative w-72 h-72 rounded-full p-2 glass border border-primary/30">
+            <div className="absolute -inset-4 bg-primary/30 rounded-full blur-2xl group-hover:bg-primary/50 transition-all duration-500 animate-pulse"></div>
+            <div className="relative w-72 h-72 rounded-full p-2 glass border border-primary/50 shadow-[0_0_40px_rgba(168,85,247,0.3)]">
               <img
                 src="/hulo-biral-cyber-security-pfp.jpeg"
                 alt="Hulo Biral"
@@ -21,20 +21,20 @@ export function CTA() {
 
         {/* Text and CTA Section */}
         <div className="text-center lg:text-left space-y-8 order-1 lg:order-2">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase text-glow">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground uppercase text-glow">
             READY TO <span className="text-primary">COLLAB?</span>
           </h2>
-          <div className="glass px-6 py-4 rounded-3xl inline-block">
-            <p className="text-xl text-gray-300 font-mono">
+          <div className="glass px-6 py-4 rounded-3xl inline-block border-primary/20">
+            <p className="text-xl text-muted-foreground font-mono">
               Rayleigh! Wanna turn the world upside down together? <br/>
-              <span className="text-primary text-sm font-bold mt-2 block">SECURE CONNECTION ESTABLISHED...</span>
+              <span className="text-primary text-sm font-bold mt-2 block animate-pulse">SECURE CONNECTION ESTABLISHED...</span>
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-6">
             <a 
               href="https://wa.me/+919593035680"
-              className="px-10 py-4 bg-primary text-black rounded-4xl font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300 shadow-[0_0_20px_rgba(255,0,0,0.4)]"
+              className="px-10 py-4 bg-primary text-white rounded-4xl font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300 shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:shadow-[0_0_50px_rgba(168,85,247,0.7)]"
             >
               Join My Crew
             </a>
@@ -47,7 +47,7 @@ export function CTA() {
             </a>
           </div>
           
-          <p className="text-xs text-secondary font-mono mt-8">
+          <p className="text-xs text-primary/60 font-mono mt-8">
             // WARNING: NO PHISHING ATTEMPTS WILL BE TOLERATED
           </p>
         </div>

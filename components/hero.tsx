@@ -22,19 +22,19 @@ export function Hero() {
       {/* Main Content */}
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-12">
         <div className="space-y-6">
-          <div className="inline-block glass px-6 py-2 rounded-4xl mb-4">
-            <span className="text-primary font-mono text-xs md:text-sm tracking-[0.2em] uppercase flex items-center gap-2">
+          <div className="inline-block glass px-6 py-2 rounded-4xl mb-4 border border-primary/30">
+            <span className="text-primary font-mono text-xs md:text-sm tracking-[0.2em] uppercase flex items-center gap-2 animate-pulse">
               <Zap className="w-3 h-3" /> System Breach Detected
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase drop-shadow-2xl text-glow">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-foreground uppercase drop-shadow-2xl text-glow">
             INITIATE <span className="text-primary">RED TEAM</span><br/>PROTOCOL
           </h1>
         </div>
         
-        <div className="glass-card p-8 rounded-4xl max-w-3xl mx-auto">
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-200 font-mono leading-relaxed">
+        <div className="glass-card p-8 rounded-4xl max-w-3xl mx-auto border-primary/20">
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-mono leading-relaxed">
             "Identity: <span className="text-primary font-bold">Hulo Biral</span>. Status: Online. <br className="hidden md:block"/>
             It's destiny, meeting you. Let's dismantle the system and build a new world order."
           </p>
@@ -43,14 +43,14 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4 md:pt-8">
           <a 
             href="#about" 
-            className="px-8 py-4 glass-button text-white rounded-4xl font-mono uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
+            className="px-8 py-4 glass-button text-foreground rounded-4xl font-mono uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 font-bold"
           >
             <Scan className="w-4 h-4" /> Execute_Inspection
           </a>
           
           <a 
             href="#contact" 
-            className="px-8 py-4 bg-primary hover:bg-primary-dark text-black rounded-4xl font-bold font-mono uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(255,0,0,0.4)] flex items-center justify-center gap-2"
+            className="px-8 py-4 bg-primary hover:bg-primary-dark text-white rounded-4xl font-bold font-mono uppercase tracking-widest transition-all duration-300 shadow-[0_0_30px_rgba(168,85,247,0.4)] flex items-center justify-center gap-2 hover:shadow-[0_0_50px_rgba(168,85,247,0.6)] hover:-translate-y-1"
           >
             <Target className="w-4 h-4" /> Join_The_Syndicate
           </a>
@@ -58,20 +58,20 @@ export function Hero() {
 
         {/* STATIC IMAGE CONTAINER */}
         <div className="pt-12 flex justify-center relative z-20">
-          <div className="relative group p-2 glass rounded-3xl">
-            <div className="relative w-fit max-w-md overflow-hidden rounded-2xl border border-white/10">
+          <div className="relative group p-2 glass rounded-3xl border-primary/20 hover:border-primary/50 transition-all duration-500">
+            <div className="relative w-fit max-w-md overflow-hidden rounded-2xl border border-white/5">
               <Image
                 src="/hulo-biral-cyber-security-great-cyber-era.jpg"
                 alt="Hulo Biral Cyber Era"
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500"
                 height={300}
                 width={400}
                 priority={true}
               />
               
               {/* Overlay Info */}
-              <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-2 flex justify-between items-center border-t border-white/10">
-                 <span className="text-[10px] font-mono text-primary tracking-widest">LIVE FEED</span>
+              <div className="absolute bottom-0 left-0 right-0 bg-black/80 backdrop-blur-sm p-2 flex justify-between items-center border-t border-primary/30">
+                 <span className="text-[10px] font-mono text-primary tracking-widest animate-pulse">LIVE FEED</span>
                  <span className="text-[10px] font-mono text-white">TARGET: HULO_001</span>
               </div>
             </div>
@@ -83,13 +83,13 @@ export function Hero() {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setIsPlayerOpen(!isPlayerOpen)}
-          className="p-4 glass rounded-4xl text-primary hover:bg-white/10 transition-all duration-300 shadow-lg border border-primary/30"
+          className="p-4 glass rounded-4xl text-primary hover:bg-primary/20 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.3)] border border-primary/40"
         >
           {isPlayerOpen ? (
             <span className="font-mono text-xs font-bold">CLOSE</span>
           ) : (
             <div className="flex items-center gap-2">
-               <span className="w-2 h-2 bg-primary rounded-full"></span>
+               <span className="w-2 h-2 bg-primary rounded-full animate-ping"></span>
                <span className="font-mono text-xs font-bold">AUDIO</span>
             </div>
           )}
@@ -99,10 +99,10 @@ export function Hero() {
       {/* Music Player Panel */}
       {isPlayerOpen && (
         <div className="fixed bottom-24 right-6 z-40">
-          <div className="glass-card p-6 rounded-4xl w-80 border border-primary/20">
-            <p className="text-primary font-mono text-xs mb-4 flex justify-between items-center">
+          <div className="glass-card p-6 rounded-4xl w-80 border border-primary/30 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+            <p className="text-primary font-mono text-xs mb-4 flex justify-between items-center border-b border-white/10 pb-2">
               <span>:: AUDIO_PLAYER ::</span>
-              <span className="text-white/50">● REC</span>
+              <span className="text-white/50 animate-pulse">● REC</span>
             </p>
             <div className="[&_*]:text-white [&_input]:accent-primary">
               <MusicPlayer playlist={demoPlaylist} autoPlay={false} showPlaylist={false} />

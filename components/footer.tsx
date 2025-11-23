@@ -28,13 +28,13 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-white/5 py-16 bg-black/40 backdrop-blur-lg text-gray-400 font-mono text-sm">
+    <footer className="border-t border-primary/10 py-16 bg-[#0a0a0a]/80 backdrop-blur-lg text-muted-foreground font-mono text-sm">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
           {/* Brand */}
           <div className="text-center lg:text-left min-w-[200px]">
-            <h3 className="font-bold text-white text-2xl mb-2 tracking-wider">HULO_BIRAL</h3>
-            <p className="text-xs text-gray-500 glass px-3 py-1 rounded-full inline-block">
+            <h3 className="font-bold text-foreground text-2xl mb-2 tracking-wider text-glow">HULO_BIRAL</h3>
+            <p className="text-xs text-gray-500 glass px-3 py-1 rounded-full inline-block border-primary/20">
               System Status: <span className="text-green-500 font-bold">ONLINE</span>
             </p>
           </div>
@@ -47,7 +47,7 @@ export function Footer() {
                 href={link.url} 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary hover:bg-white/5 px-3 py-2 rounded-xl transition-all flex items-center gap-2 group"
+                className="hover:text-primary hover:bg-white/5 px-3 py-2 rounded-xl transition-all flex items-center gap-2 group hover:scale-105"
                 aria-label={link.name}
               >
                 <link.icon className="w-4 h-4 group-hover:text-primary transition-colors" />
