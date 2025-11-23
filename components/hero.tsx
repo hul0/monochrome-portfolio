@@ -33,7 +33,7 @@ export function Hero() {
           </h1>
         </div>
         
-        <div className="glass-card p-8 rounded-4xl max-w-3xl mx-auto border-primary/20">
+        <div className="glass-card p-8 rounded-4xl max-w-3xl mx-auto border-primary/20 bg-transparent">
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-mono leading-relaxed">
             "Identity: <span className="text-primary font-bold">Hulo Biral</span>. Status: Online. <br className="hidden md:block"/>
             It's destiny, meeting you. Let's dismantle the system and build a new world order."

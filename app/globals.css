@@ -2,63 +2,63 @@
 
 :root {
   /* Core Palette - Deep Voids & Luxurious Purples */
-  --background: #181818;     /* Requested Dark Grey/Black */
+  --background: #0a0a0a; /* Darker for better contrast */
   --foreground: #ffffff;
-  
-  /* Purple Palette - Vibrant & Luxurious */
-  --primary: #a855f7;        /* Purple 500 - Main Accent (Bright) */
-  --primary-dark: #7e22ce;   /* Purple 700 - Depth */
-  --secondary: #581c87;      /* Purple 900 - Deep Rich */
-  --tertiary: #3b0764;       /* Ultra Dark Purple */
-  
-  --card: rgba(24, 24, 27, 0.6); /* Zinc-900 base with opacity */
+
+  /* Purple Palette - Enhanced Vibrancy */
+  --primary: #a855f7; /* Purple 500 - Main Accent */
+  --primary-dark: #7e22ce; /* Purple 700 - Depth */
+  --primary-light: #c084fc; /* Purple 400 - Lighter variant */
+  --secondary: #581c87; /* Purple 900 - Deep Rich */
+  --tertiary: #3b0764; /* Ultra Dark Purple */
+
+  --card: rgba(24, 24, 27, 0.7); /* Increased opacity for better depth */
   --card-foreground: #ffffff;
+
   --popover: #181818;
   --popover-foreground: #ffffff;
-  
+
   --muted: #27272a;
   --muted-foreground: #a1a1aa;
+
   --accent: #581c87;
   --accent-foreground: #ffffff;
-  
+
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  
-  --border: rgba(168, 85, 247, 0.2); /* Purple tinted border */
+
+  --border: rgba(168, 85, 247, 0.25); /* Stronger purple border */
   --input: rgba(59, 7, 100, 0.5);
   --ring: #a855f7;
+
   --radius: 1.5rem;
 }
 
 @theme inline {
   --font-sans: var(--font-sans), sans-serif;
-  --font-mono: "Geist Mono", monospace; /* Keeping mono for code snippets */
-  
+  --font-mono: "Geist Mono", monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
-  
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -69,31 +69,39 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   html.lenis, html.lenis body {
     height: auto;
   }
+
   .lenis.lenis-smooth {
     scroll-behavior: auto !important;
   }
+
   .lenis.lenis-smooth [data-lenis-prevent] {
     overscroll-behavior: contain;
   }
+
   .lenis.lenis-stopped {
     overflow: hidden;
   }
+
   .lenis.lenis-scrolling iframe {
     pointer-events: none;
   }
+
   body {
     @apply bg-background text-foreground;
-    /* Subtle purple ambient light at the top */
-    background-image: 
-      radial-gradient(circle at 50% -20%, #3b0764 0%, transparent 40%),
-      radial-gradient(circle at 100% 50%, rgba(88, 28, 135, 0.15) 0%, transparent 50%);
+    /* Enhanced Purple Gradient Background - Multi-layered */
+    background-image:
+      radial-gradient(circle at 50% -30%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 0% 50%, rgba(88, 28, 135, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 100% 80%, rgba(59, 7, 100, 0.1) 0%, transparent 50%),
+      linear-gradient(180deg, #0a0a0a 0%, #0f0516 50%, #0a0a0a 100%);
     background-attachment: fixed;
     min-height: 100vh;
     /* Custom Purple Cursor */
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23a855f7" stroke-width="2"><path d="M12 2L12 22" /><path d="M2 12L22 12" /><circle cx="12" cy="12" r="4" stroke="%23a855f7" /></svg>') 12 12, auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23a855f7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg>') 12 12, auto;
   }
 }
 
@@ -101,86 +109,175 @@
   .text-balance {
     text-wrap: balance;
   }
+
   .text-glow {
-    text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
+    text-shadow: 
+      0 0 20px rgba(168, 85, 247, 0.6), 
+      0 0 40px rgba(168, 85, 247, 0.4),
+      0 0 60px rgba(168, 85, 247, 0.2);
   }
-  
-  /* --- LUXURIOUS GLASSMORPHISM --- */
-  
+
+  .text-glow-strong {
+    text-shadow: 
+      0 0 30px rgba(168, 85, 247, 0.8), 
+      0 0 60px rgba(168, 85, 247, 0.6),
+      0 0 90px rgba(168, 85, 247, 0.4);
+  }
+
+  /* --- ENHANCED LUXURIOUS GLASSMORPHISM --- */
   .glass {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @apply bg-transparent backdrop-blur-xl border border-white/10;
+    background: linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.06) 0%, 
+      rgba(168, 85, 247, 0.08) 100%
+    );
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.4),
+      0 0 15px -3px rgba(168, 85, 247, 0.2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
   }
 
   .glass-card {
-    @apply bg-[#1e1e1e]/60 backdrop-blur-2xl border border-white/5;
-    /* Permanent smooth purple glow */
-    box-shadow: 
-      0 10px 30px -5px rgba(0, 0, 0, 0.5),
-      0 0 20px -5px rgba(168, 85, 247, 0.15), /* The glow */
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .glass-card:hover {
-    @apply border-primary/40;
-    transform: translateY(-5px);
-    /* Intensified glow on hover */
+    /* Updated: Added border-primary/40 to be permanent */
+    @apply bg-transparent backdrop-blur-2xl border border-primary/40;
+    
+    /* Updated: Moved the "intensified" purple glow shadow here permanently */
     box-shadow: 
       0 20px 40px -5px rgba(0, 0, 0, 0.6),
       0 0 40px -5px rgba(168, 85, 247, 0.3),
       inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+      
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card:hover {
+    /* Updated: Removed border and shadow changes, kept only translation */
+    transform: translateY(-5px);
   }
 
   .glass-button {
-    @apply bg-primary/10 backdrop-blur-md border border-primary/20 text-white transition-all duration-300 ease-out relative overflow-hidden;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.1);
+    @apply bg-primary/15 backdrop-blur-md border border-primary/30 text-white transition-all duration-300 ease-out relative overflow-hidden;
+    box-shadow: 
+      0 0 20px rgba(168, 85, 247, 0.2),
+      0 0 40px rgba(168, 85, 247, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
   }
-  
+
+  .glass-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
   .glass-button:hover {
-    @apply bg-primary text-white border-primary;
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
-    transform: translateY(-2px);
+    @apply bg-primary/90 text-white border-primary;
+    box-shadow: 
+      0 0 35px rgba(168, 85, 247, 0.6),
+      0 0 70px rgba(168, 85, 247, 0.4),
+      0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
   }
-}
 
-/* --- SCROLLBAR --- */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--tertiary);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
-}
+  .glass-button:hover::before {
+    opacity: 1;
+  }
 
-/* --- ANIMATIONS --- */
-@keyframes banner-slide {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.animate-banner-slide {
-  animation: banner-slide 25s linear infinite;
-}
-@keyframes cyber-scan-line {
-  0% { top: 0%; opacity: 0; }
-  5% { opacity: 1; }
-  95% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-.animate-cyber-line {
-  animation: cyber-scan-line 3s linear infinite;
-}
-@keyframes flicker {
-  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; }
-  20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.5; }
-}
-.animate-flicker {
-  animation: flicker 2s infinite;
+  .glass-button:active {
+    transform: translateY(-1px);
+  }
+
+  /* Icon glow effects */
+  .icon-glow {
+    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
+    transition: filter 0.3s ease;
+  }
+
+  .icon-glow:hover {
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.7));
+  }
+
+  /* --- SCROLLBAR --- */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+    border-left: 1px solid rgba(168, 85, 247, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--tertiary) 0%, var(--primary) 100%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  }
+
+  /* --- ANIMATIONS --- */
+  @keyframes banner-slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-banner-slide {
+    animation: banner-slide 25s linear infinite;
+  }
+
+  @keyframes cyber-scan-line {
+    0% { top: 0%; opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  .animate-cyber-line {
+    animation: cyber-scan-line 3s linear infinite;
+  }
+
+  @keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.5; }
+  }
+
+  .animate-flicker {
+    animation: flicker 2s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 
+        0 0 20px rgba(168, 85, 247, 0.3),
+        0 0 40px rgba(168, 85, 247, 0.2);
+    }
+    50% {
+      box-shadow: 
+        0 0 30px rgba(168, 85, 247, 0.5),
+        0 0 60px rgba(168, 85, 247, 0.3);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Responsive utilities */
+  .container-responsive {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-spacing {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .card-spacing {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
 }

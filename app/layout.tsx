@@ -1,10 +1,10 @@
-import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Poppins } from 'next/font/google'
+// 1. Import the new component
+import { ParticleBackground } from "@/components/particle-background" 
 
-// Initialize Poppins font
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -29,7 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} font-sans antialiased bg-background text-foreground selection:bg-primary selection:text-white`}>
-        {children}
+        {/* 2. Add the Background Component here */}
+        <ParticleBackground />
+        
+        {/* 3. Ensure children (your content) sits above the background */}
+        <div className="relative z-10">
+          {children}
+        </div>
         <Analytics />
       </body>
     </html>

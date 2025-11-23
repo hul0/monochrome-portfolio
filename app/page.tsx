@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="overflow-x-hidden bg-background text-foreground selection:bg-primary selection:text-white">
+      <main className="overflow-x-hidden bg-transparent text-foreground selection:bg-primary selection:text-white">
         <Hero />
         <TechBanner />
         <About />
