@@ -48,7 +48,7 @@ export function Services() {
               className="glass-card p-8 rounded-3xl hover:bg-primary/5 transition-all duration-300 group border-primary/10"
             >
               {/* Fixed glow added to icon container */}
-              <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center mb-6 border border-primary/20 shadow-[0_0_15px_rgba(168,85,247,0.25)] group-hover:border-primary group-hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all">
+              <div className="w-12 h-12 glass-card rounded-2xl flex items-center justify-center mb-6 border border-primary/20 shadow-[0_0_15px_rgba(168,85,247,0.25)] group-hover:border-primary group-hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all">
                 <TerminalSquare className="w-6 h-6 text-primary" />
               </div>
               

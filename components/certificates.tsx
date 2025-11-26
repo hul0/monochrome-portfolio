@@ -38,6 +38,14 @@ export function Certificates() {
       link:"https://tryhackme.com/p/hulo"
     },
     {
+      title: "Introduction to Dark Web, Anonymity, and Cryptocurrency",
+      issuer: "EC-Council",
+      date: "2025",
+      image: "/hulo-biral-ec-council-darkweb.png",
+      id: "EC-COUNCIL-DARKWEB",
+      link:"https://learn.eccouncil.org/certificate/2cf6dcdf-95bf-4f5e-b8ec-4ea6b87a0b88"
+    },
+    {
       title:"Build a Website on Google Cloud Skill Badge",
       issuer: "Google Cloud",
       date: "2025",

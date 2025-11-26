@@ -124,7 +124,7 @@ export function About() {
     >
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-6 mb-16 border-b border-white/10 pb-8">
-          <div className="p-4 glass rounded-full border border-primary/40 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
+          <div className="p-4 glass-card rounded-full border border-primary/40 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
             <Terminal className="w-8 h-8 text-primary" />
           </div>
           <div className="text-center md:text-left">

@@ -3,7 +3,7 @@
 import { MusicPlayer } from "./musicPlayer";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Scan, Target, Zap , Music , X} from "lucide-react";
+import { Scan, Target, Zap , Music , X, Contact, Search} from "lucide-react";
 
 const demoPlaylist = [
   {
@@ -87,7 +87,7 @@ export function Hero({ initialCount }: HeroProps) {
               WebkitBackdropFilter: "blur(12px)",
             }}
           >
-            <Scan className="w-4 h-4" />
+            <Search className="w-4 h-4" />
             Inspect
           </a>
           <a
@@ -98,12 +98,12 @@ export function Hero({ initialCount }: HeroProps) {
               WebkitBackdropFilter: "blur(12px)",
             }}
           >
-            <Target className="w-4 h-4" />
+            <Contact className="w-4 h-4" />
             Contact
           </a>
         </div>
 
-        <div className="pt-12 flex justify-center relative z-20">
+        {/* <div className="pt-12 flex justify-center relative z-20">
           <div
             className="relative group p-2 glass rounded-3xl hover:scale-[1.02] transition-all duration-500 backdrop-blur-2xl"
             style={{
@@ -137,7 +137,7 @@ export function Hero({ initialCount }: HeroProps) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="fixed bottom-6 right-6 z-50">
         <button

@@ -105,7 +105,7 @@ export function HallOfFame() {
                {toolsUsed.map((tool, idx) => (
                  <span 
                    key={idx} 
-                   className="px-3 py-1 bg-black/40 border border-white/5 rounded-full text-xs font-mono text-gray-300 hover:border-primary hover:text-white hover:bg-primary/10 transition-all cursor-default shadow-[0_0_10px_rgba(168,85,247,0.15)] hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                   className="px-3 glass-card py-1 bg-black/40 border border-white/5 rounded-full text-xs font-mono text-gray-300 hover:border-primary hover:text-white hover:bg-primary/10 transition-all cursor-default shadow-[0_0_10px_rgba(168,85,247,0.15)] hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
                  >
                    {tool}
                  </span>
@@ -123,7 +123,7 @@ export function HallOfFame() {
                {toolsMade.map((tool, idx) => (
                  <div 
                     key={idx} 
-                    className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-transparent hover:border-primary/30 hover:bg-primary/5 transition-all group hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]"
+                    className="flex glass-card items-center justify-between p-4 bg-white/5 rounded-2xl border border-transparent hover:border-primary/30 hover:bg-primary/5 transition-all group hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]"
                   >
                    <span className="text-sm font-mono text-white group-hover:text-primary transition-colors">{tool}</span>
                    <Cpu className="w-4 h-4 text-primary/50 group-hover:text-primary" />
@@ -207,7 +207,7 @@ export function HallOfFame() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 glass rounded-full hover:bg-primary hover:text-white transition-all duration-300 group border border-white/10 hover:border-primary hover:scale-110 shadow-[0_0_15px_rgba(168,85,247,0.15)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+                  className="p-4 glass-card rounded-full hover:bg-primary hover:text-white transition-all duration-300 group border border-white/10 hover:border-primary hover:scale-110 shadow-[0_0_15px_rgba(168,85,247,0.15)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
                 >
                   <Icon className="w-6 h-6 text-muted-foreground group-hover:text-white" />
                 </a>

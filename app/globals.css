@@ -272,11 +272,11 @@ input, textarea {
   /* --- ANIMATIONS --- */
   @keyframes banner-slide {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to { transform: translateX(-100%); }
   }
 
   .animate-banner-slide {
-    animation: banner-slide 3s linear infinite;
+    animation: banner-slide 8s linear infinite;
   }
 
   @keyframes cyber-scan-line {
@@ -287,7 +287,7 @@ input, textarea {
   }
 
   .animate-cyber-line {
-    animation: cyber-scan-line 3s linear infinite;
+    animation: cyber-scan-line 10s linear infinite;
   }
 
   @keyframes flicker {
