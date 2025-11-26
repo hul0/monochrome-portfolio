@@ -10,14 +10,14 @@ export function TechBanner() {
   ];
 
   return (
-    <section className="glass border-y border-primary/20 py-8 relative z-10 overflow-hidden bg-black/20">
+    <section className="glass-card rounded-2xl border-y border-primary/20 py-8 relative z-10 overflow-hidden bg-black/20">
       <div className="flex animate-banner-slide gap-8">
         {/* Original List */}
         <div className="flex gap-8 items-center">
           {techItems.map((item, index) => (
             <span
               key={`a-${index}`}
-              className="glass px-6 py-3 rounded-4xl text-white/70 text-sm font-mono font-bold uppercase tracking-wider hover:text-primary hover:bg-primary/10 transition-all cursor-default border border-white/5 hover:border-primary/50 whitespace-nowrap hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+              className="glass-card px-6 py-3 rounded-4xl text-white/70 text-sm font-mono font-bold uppercase tracking-wider hover:text-primary hover:bg-primary/10 transition-all cursor-default border border-white/5 hover:border-primary/50 whitespace-nowrap hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]"
             >
               {item}
             </span>
@@ -27,8 +27,8 @@ export function TechBanner() {
         <div className="flex gap-8 items-center">
           {techItems.map((item, index) => (
             <span
-              key={`b-${index}`}
-              className="glass px-6 py-3 rounded-4xl text-white/70 text-sm font-mono font-bold uppercase tracking-wider hover:text-primary hover:bg-primary/10 transition-all cursor-default border border-white/5 hover:border-primary/50 whitespace-nowrap hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+              key={`a-${index}`}
+              className="glass-card px-6 py-3 rounded-4xl text-white/70 text-sm font-mono font-bold uppercase tracking-wider hover:text-primary hover:bg-primary/10 transition-all cursor-default border border-white/5 hover:border-primary/50 whitespace-nowrap hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]"
             >
               {item}
             </span>
