@@ -6,7 +6,7 @@ async function getInitialCount() {
       cache: 'no-store',
     });
     const data = await res.json();
-    return data.data.up_count || 29;
+    return data.data.up_count || 69;
   } catch (error) {
     console.error('Error fetching initial count:', error);
     return 29;
