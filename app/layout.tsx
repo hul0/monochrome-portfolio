@@ -33,7 +33,7 @@ export default function RootLayout({
         <ParticleBackground />
         
         {/* 3. Ensure children (your content) sits above the background */}
-        <div className="relative z-10">
+        <div className="relative z-10 my-2">
           {children}
         </div>
         <Analytics />
