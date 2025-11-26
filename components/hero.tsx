@@ -46,7 +46,7 @@ export function Hero({ initialCount }: HeroProps) {
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-12">
         <div className="space-y-6">
           <div
-            className="inline-block glass px-6 py-2 rounded-4xl mb-4 backdrop-blur-xl"
+            className="inline-block glass-card px-6 py-2 rounded-4xl mb-4 backdrop-blur-xl"
             style={{
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
@@ -142,7 +142,7 @@ export function Hero({ initialCount }: HeroProps) {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setIsPlayerOpen(!isPlayerOpen)}
-          className="p-4 glass rounded-4xl text-primary hover:bg-primary/20 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.3)] backdrop-blur-xl"
+          className="p-4 glass-card rounded-4xl text-primary hover:bg-primary/20 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.3)] backdrop-blur-xl"
           style={{
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",

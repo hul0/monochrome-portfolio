@@ -13,19 +13,19 @@ export function Testimonials() {
           <div className="space-y-8 relative z-10">
             <div className="text-6xl text-primary/30 font-serif">"</div>
             <p className="text-3xl font-bold text-white">
-              Oops! No transmission data found.
+              Oops! No Testimonials Yet!
             </p>
             <p className="text-muted-foreground font-mono max-w-2xl mx-auto">
-              Be the first to initiate a handshake. Share your experience working with me.
+              Be the first to initiate a THREE-WAY-HANDSHAKE. Share your experience working with me.
             </p>
           </div>
 
           <div className="mt-10">
             <a
               href="mailto:hulo@hulobiral.online?subject=Testimonial for Hulo Biral"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-white rounded-4xl font-bold uppercase font-mono hover:bg-white hover:text-primary transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+              className="inline-flex glass-card items-center gap-2 px-10 py-4 bg-primary text-white rounded-4xl font-bold uppercase font-mono hover:bg-white hover:text-primary transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
             >
-              Submit_Feedback
+              Send Feedback
             </a>
           </div>
           

@@ -28,13 +28,13 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-primary/10 py-16 bg-[#0a0a0a]/80 backdrop-blur-lg text-muted-foreground font-mono text-sm">
+    <footer className="border-t glass-card border-primary/10 py-16 bg-[#0a0a0a]/80 backdrop-blur-lg text-muted-foreground font-mono text-sm">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
           {/* Brand */}
           <div className="text-center lg:text-left min-w-[200px]">
-            <h3 className="font-bold text-foreground text-2xl mb-2 tracking-wider text-glow">HULO_BIRAL</h3>
-            <p className="text-xs text-gray-500 glass px-3 py-1 rounded-full inline-block border-primary/20">
+            <h3 className="font-bold text-foreground text-2xl mb-2 tracking-wider text-glow">Hulo Biral</h3>
+            <p className="text-xs text-gray-500 glass-card px-3 py-1 rounded-full inline-block border-primary/20">
               System Status: <span className="text-green-500 font-bold">ONLINE</span>
             </p>
           </div>
@@ -47,7 +47,7 @@ export function Footer() {
                 href={link.url} 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary hover:bg-white/5 px-3 py-2 rounded-xl transition-all flex items-center gap-2 group hover:scale-105"
+                className="hover:text-primary hover:bg-white/5 px-3 py-2 rounded-xl glass-card transition-all flex items-center gap-2 group hover:scale-105"
                 aria-label={link.name}
               >
                 <link.icon className="w-4 h-4 group-hover:text-primary transition-colors" />
@@ -59,7 +59,7 @@ export function Footer() {
           {/* Copyright */}
           <div className="text-center lg:text-right min-w-[200px]">
             <p className="text-xs mb-2">© {currentYear} Hulo Biral.</p>
-            <p className="text-[10px] text-primary/60 tracking-widest border border-primary/20 px-2 py-1 rounded-lg inline-block">SECURED BY RED TEAM PROTOCOLS</p>
+            <p className="text-[10px] text-primary/60 tracking-widest border border-primary/20 px-2 py-1 rounded-lg inline-block glass-card">Made by Hulo</p>
           </div>
         </div>
       </div>

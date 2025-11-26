@@ -276,7 +276,7 @@ input, textarea {
   }
 
   .animate-banner-slide {
-    animation: banner-slide 25s linear infinite;
+    animation: banner-slide 3s linear infinite;
   }
 
   @keyframes cyber-scan-line {

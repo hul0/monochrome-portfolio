@@ -1,6 +1,6 @@
 "use client";
 
-import { TerminalSquare } from "lucide-react";
+import { ArrowBigRight, ArrowDown, ArrowRight, ArrowRightFromLine, ArrowRightToLine, MoveRight, SquareArrowRightIcon, TerminalSquare } from "lucide-react";
 
 export function Services() {
   const services = [
@@ -75,8 +75,8 @@ export function Services() {
                     <h2 className="text-3xl font-bold text-white mb-4 text-glow">
                         The Transition I Need
                     </h2>
-                    <p className="text-gray-300 font-mono text-base leading-relaxed">
-                        "Every system has a flaw. I am just looking for the right exploit to upgrade my career."
+                    <p className="text-gray-300 flex items-center font-mono text-base leading-relaxed">
+                        "I'm so weak" <MoveRight/> "This is my PEAK"
                     </p>
                 </div>
             </div>

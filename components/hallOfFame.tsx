@@ -43,14 +43,6 @@ export function HallOfFame() {
       caption: "My Idols",
       width: 600,
       height: 600,
-    },
-    {
-        src: "/hulo-biral-cyber-security-griffith-pfp.png",
-        alt: "Griffith",
-        title: "Griffith",
-        caption: "Dreamer",
-        width: 600,
-        height: 600,
     }
   ];
 
@@ -69,10 +61,7 @@ export function HallOfFame() {
 
   const toolsMade = [
     "Custom Port Scanner (Python)",
-    "Automated Recon Script (Bash)",
-    "Simple Keylogger (C++)", 
-    "Steganography Tool",
-    "Payload Generator"
+    "Slow HTTP Header DoS tool"
   ];
 
   const quote = {
@@ -88,8 +77,8 @@ export function HallOfFame() {
     { name: "Medium", icon: Book, url: "https://medium.com/@hulo-biral" },
     { name: "YouTube", icon: Youtube, url: "https://youtube.com/@hulocyber" },
     { name: "X (Twitter)", icon: LucideTwitter, url: "https://x.com/hulocyber" },
-    { name: "Facebook", icon: Facebook, url: "https://facebook.com/yourprofile" },
-    { name: "Instagram", icon: Instagram, url: "https://instagram.com/yourhandle" },
+    { name: "Facebook", icon: Facebook, url: "https://facebook.com/hulocyber" },
+    { name: "Instagram", icon: Instagram, url: "https://instagram.com/zuck" },
   ];
 
   return (
@@ -99,7 +88,7 @@ export function HallOfFame() {
         {/* Intro */}
         <div className="text-center space-y-6">
            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground uppercase text-glow">
-             <span className="text-primary">ARSENAL</span> & <span className="text-primary">TROPHIES</span>
+             <span className="text-primary">ARSENAL</span> 
            </h2>
            <div className="w-32 h-1 bg-primary mx-auto rounded-full shadow-[0_0_25px_rgba(168,85,247,0.9)]"></div>
         </div>
@@ -148,9 +137,9 @@ export function HallOfFame() {
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div className="space-y-6">
              <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2 text-glow">
-               <LucideComputer className="text-primary" /> LIVE_STATUS
+               <LucideComputer className="text-primary" /> TryHackMe
              </h3>
-             <div className="glass p-2 rounded-3xl border border-primary/30 hover:border-primary/60 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.15)] hover:shadow-[0_0_35px_rgba(168,85,247,0.3)]">
+             <div >
                 <div className="rounded-2xl overflow-hidden">
                   <iframe
                       src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1354938"
@@ -159,7 +148,7 @@ export function HallOfFame() {
                       height="240"
                       style={{ border: "none" }}
                       loading="lazy"
-                      className="filter grayscale hover:grayscale-0 transition-all duration-500"
+                      className="filter transition-all duration-500"
                   ></iframe>
                 </div>
              </div>
