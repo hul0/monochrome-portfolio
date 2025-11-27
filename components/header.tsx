@@ -16,7 +16,7 @@ export function Header() {
         {/* Mobile menu button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col gap-1.5 cursor-pointer group p-2 glass-card rounded-lg border-primary/20"
+          className="md:hidden hidden flex flex-col gap-1.5 cursor-pointer group p-2 glass-card rounded-lg border-primary/20"
           aria-label="Toggle menu"
         >
           <span className={`block w-6 h-0.5 bg-primary transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""}`} />

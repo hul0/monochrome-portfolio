@@ -16,11 +16,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.hulobiral.online",
+    siteName: "Hulo Biral - Cybersecurity",
     title: "Hulo Biral | The Great Cyber Era",
     description: "Start the Great Cyber era with Hulo Biral.",
     images: [
       {
-        url: "/og-image-hulo-biral-cyber-security.png",
+        url: "/og-image-hulo-biral-cyber-security.jpg",
         width: 1200,
         height: 630,
         alt: "Hulo Biral Cybersecurity",
