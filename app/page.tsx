@@ -5,6 +5,7 @@ import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Certificates } from "@/components/certificates"
 import { HallOfFame } from "@/components/hallOfFame"
+import ProjectsPage from "./projects/page"
 import { Services } from "@/components/services"
 import { Testimonials } from "@/components/testimonials"
 import { CTA } from "@/components/cta"
@@ -39,6 +40,7 @@ export default function Home() {
         <TechBanner />
         <About />
         <Certificates />
+        <ProjectsPage/>
         <HallOfFame />
         <Services />
         <Testimonials />

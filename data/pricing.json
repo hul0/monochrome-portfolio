@@ -1,0 +1,235 @@
+{
+  "sections": [
+    {
+      "id": "web-dev",
+      "title": "Web Development Pricing",
+      "description": "Standard websites, landing pages, and web applications.",
+      "overview": [
+        { "tier": "Free Trial", "desc": "Tiny preview or audit to build trust (no heavy work, no custom hosting)." },
+        { "tier": "₹499", "desc": "Very small, well-defined task (1–2 hours max)." },
+        { "tier": "₹999", "desc": "Small deliverable (single-page or small fix pack)." },
+        { "tier": "₹1,999", "desc": "Light multi-page site or several changes." },
+        { "tier": "₹2,999", "desc": "Full small-business website or advanced fix pack." },
+        { "tier": "₹4,999", "desc": "More polished, feature-rich build with some backend." },
+        { "tier": "₹9,999", "desc": "Complete small business / startup site with basic SaaS-style features." }
+      ],
+      "packages": [
+        {
+          "name": "Landing Page / One-Page Site",
+          "tiers": [
+            { "name": "Free Trial", "price": "₹0", "details": "1 simple wireframe or Figma-style mockup of the landing page (no full implementation)." },
+            { "name": "₹499", "price": "₹499", "details": "1 static HTML/CSS page with your logo, heading, and basic content." },
+            { "name": "₹999", "price": "₹999", "details": "Fully responsive landing page (desktop + mobile) with basic animations and contact button." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Landing page with contact form, basic on-page SEO (meta tags, titles, descriptions) and Google Maps embed." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Landing page with hero section, features section, testimonials, and integrated contact form with email delivery." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Conversion-optimized landing page: responsive design, animations, SEO basics, performance optimizations." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Premium landing experience: A/B-ready structure, analytics integration, basic copy improvements, deployment and 1 month of minor edits." }
+          ]
+        },
+        {
+          "name": "Portfolio / Personal Website",
+          "tiers": [
+            { "name": "Free Trial", "price": "₹0", "details": "Simple homepage layout suggestion or theme recommendation." },
+            { "name": "₹499", "price": "₹499", "details": "Basic 2–3 section HTML portfolio page (about, work summary, contact link)." },
+            { "name": "₹999", "price": "₹999", "details": "3–5 page personal site (about, projects, contact, skills, home) – static." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Add simple blog page layout or projects gallery with filters." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Portfolio with basic CMS (e.g., markdown/JSON-based) for adding projects." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Polished portfolio with animations, custom design touches, SEO, and contact form." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Full personal brand website: portfolio, blog, newsletter signup, analytics and deployment setup." }
+          ]
+        },
+        {
+          "name": "Blog / Content Site",
+          "tiers": [
+            { "name": "Free Trial", "price": "₹0", "details": "Blog structure suggestion + 3 post ideas." },
+            { "name": "₹499", "price": "₹499", "details": "Basic blog layout with list of posts (static data)." },
+            { "name": "₹999", "price": "₹999", "details": "Blog with real posts from markdown/JSON (up to 5 initial posts)." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Search and category tags plus improved responsive design." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "SEO-oriented blog setup: meta tags, sitemap, performance tweaks." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Blog with simple CMS/integration (e.g., headless CMS or flat-file) plus backup instructions." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Full blog platform: CMS integration, basic admin, analytics, and 1 month of bugfix support." }
+          ]
+        },
+        {
+          "name": "Basic E‑Commerce Site",
+          "tiers": [
+            { "name": "Free Trial", "price": "₹0", "details": "Product list wireframe and suggestions for structure." },
+            { "name": "₹499", "price": "₹499", "details": "Static product list page showing up to 5 products (no payment)." },
+            { "name": "₹999", "price": "₹999", "details": "Product listing with cart UI (front-end only, no real checkout)." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Simple checkout simulation or basic integration with one payment provider (front-end test mode)." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Small e‑com MVP: product pages, cart, simple checkout workflow (test mode / cash-on-delivery)." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Polished e‑com mini-site with discount codes, order confirmation emails (where possible), mobile optimization." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Small store solution: inventory basics, admin panel (simple), analytics events and deployment." }
+          ]
+        }
+      ],
+      "extras": [
+        "API backend for simple CRUD (users, items, orders).",
+        "Admin or analytics dashboards.",
+        "Responsive redesign and performance optimization.",
+        "SEO audit and basic on-page optimization."
+      ]
+    },
+    {
+      "id": "app-dev",
+      "title": "Mobile App Development Pricing",
+      "description": "Android (Kotlin) and Hybrid (React Native/Flutter) development.",
+      "overview": [
+        { "tier": "Free Trial", "desc": "Small prototype screen, UI concept, or app idea review." },
+        { "tier": "₹499", "desc": "Tiny feature or 1–2 simple screens." },
+        { "tier": "₹999", "desc": "Small MVP or limited-feature app." },
+        { "tier": "₹1,999", "desc": "Simple functional app usable in real life." },
+        { "tier": "₹2,999", "desc": "More complete app with navigation and local storage/API." },
+        { "tier": "₹4,999", "desc": "Polished app with better UX and extra features." },
+        { "tier": "₹9,999", "desc": "Small but production-ready app or large feature implementation." }
+      ],
+      "packages": [
+        {
+          "name": "Basic Android App (Kotlin)",
+          "tiers": [
+            { "name": "Free Trial", "price": "₹0", "details": "Wireframe or basic layout of 1 key screen." },
+            { "name": "₹499", "price": "₹499", "details": "1–2 static screens (e.g., welcome + simple info)." },
+            { "name": "₹999", "price": "₹999", "details": "Multi-screen navigation (home + 1 feature) without backend." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "App with simple local storage (shared prefs/SQLite) and input forms." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "App with login, basic settings screen, and polished UI." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Stable app with error handling, basic analytics hooks, release APK." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Production-ready small app: release build, proguard config, publishing guidance." }
+          ]
+        },
+        {
+          "name": "Hybrid App (React Native / Flutter)",
+          "tiers": [
+             { "name": "Free Trial", "price": "₹0", "details": "1 UI mock or component preview." },
+            { "name": "₹499", "price": "₹499", "details": "Basic starter project + 1 screen." },
+            { "name": "₹999", "price": "₹999", "details": "2–3 screens with basic navigation." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "API integration for 1–2 endpoints." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Offline storage (local DB) and improved UI." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Push notifications and basic theming." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Nearly full small app: multi-screen, backend integration, release build." }
+          ]
+        },
+        {
+          "name": "Feature Implementation / App Improvements",
+          "tiers": [
+            { "name": "Free Trial", "price": "₹0", "details": "Quick code review or suggestion list." },
+            { "name": "₹499", "price": "₹499", "details": "1 small bug fix or UI tweak." },
+            { "name": "₹999", "price": "₹999", "details": "1 small feature (e.g., new form, simple screen)." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Medium feature: pagination, search, filtering, or state improvement." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Performance improvements and several bug fixes together." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Major feature: new module/section with UI + logic." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Big refactor or multiple large features bundled." }
+          ]
+        },
+        {
+          "name": "Security / Utility Apps",
+          "tiers": [
+            { "name": "Free Trial", "price": "₹0", "details": "Simple PoC (e.g., calling a speech API or basic VPN config preview)." },
+            { "name": "₹499", "price": "₹499", "details": "Barebones UI shell with one active button/workflow." },
+            { "name": "₹999", "price": "₹999", "details": "Connecting front-end to one external API (test mode)." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Stable single-feature utility app ready for early users." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Additional features like logs, history, or configurations." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Polish, extra security checks, and better UX." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Full small security/utility app: multi-feature, local storage, and release build." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Cybersecurity & Pentesting Pricing",
+      "description": "VAPT, Network Security, and Security Consultation.",
+      "overview": [
+        { "tier": "Free Trial", "desc": "Light recon / quick check; no deep exploitation." },
+        { "tier": "₹499", "desc": "Simple scan or small config check." },
+        { "tier": "₹999", "desc": "Basic vulnerability scan with short notes." },
+        { "tier": "₹1,999", "desc": "Structured scan plus short report." },
+        { "tier": "₹2,999", "desc": "Deeper testing with remediation suggestions." },
+        { "tier": "₹4,999", "desc": "Small but serious pentest / VAPT with proof-of-concept." },
+        { "tier": "₹9,999", "desc": "Mini red-team style engagement or thorough test for 1 asset." }
+      ],
+      "packages": [
+        {
+          "name": "Website Scan & Basic Hardening",
+          "tiers": [
+             { "name": "Free Trial", "price": "₹0", "details": "Basic external recon: open ports/services list snapshot." },
+            { "name": "₹499", "price": "₹499", "details": "Automated vulnerability scan output (no manual validation)." },
+            { "name": "₹999", "price": "₹999", "details": "Verified list of key findings with short plain-text comments." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Structured PDF report with issues, risk levels, and basic remediation steps." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Manual testing on common OWASP issues (XSS, basic auth flaws, misconfigurations) + improved report." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Deeper testing, screenshots/PoCs for major findings, and prioritized fix plan." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "One full cycle: test, report, consultation call, and one retest after fixes." }
+          ]
+        },
+        {
+          "name": "APK / App VAPT (Lightweight)",
+          "tiers": [
+             { "name": "Free Trial", "price": "₹0", "details": "Basic static APK check or quick permissions review." },
+            { "name": "₹499", "price": "₹499", "details": "Automated scan report (e.g., manifest issues, debug flags)." },
+            { "name": "₹999", "price": "₹999", "details": "Manual review of storage, logging, and simple API endpoints." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Combined static + light dynamic testing report." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Obfuscation / tampering attempts plus secure storage checks." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Detailed PDF with PoCs and prioritized fixes." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Comprehensive VAPT for single app version + one retest after fixes." }
+          ]
+        },
+        {
+          "name": "Network Recon & Basic Assessment",
+          "tiers": [
+             { "name": "Free Trial", "price": "₹0", "details": "Simple Nmap-style scan of 1 IP range / server with service list." },
+            { "name": "₹499", "price": "₹499", "details": "Detailed scan with version detection and top ports." },
+            { "name": "₹999", "price": "₹999", "details": "Simple vulnerability mapping based on detected services." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Structured findings report with risk levels." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Manual verification of a subset of higher-risk findings." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Small internal-style assessment (where access is provided)." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Mini engagement: recon, scan, manual tests, report, and short consultation." }
+          ]
+        },
+         {
+          "name": "Wi‑Fi / Home / Small Office Security",
+          "tiers": [
+             { "name": "Free Trial", "price": "₹0", "details": "Quick check of router configuration screenshot / settings." },
+            { "name": "₹499", "price": "₹499", "details": "Recommendations on SSID, password strength, and basic router security." },
+            { "name": "₹999", "price": "₹999", "details": "Guidance on WPA2/WPA3 config and guest network setup." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Remote/onsite (if feasible) review of Wi‑Fi network with full settings audit." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Testing for weak passwords and obvious misconfigurations." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Simulated small attack scenarios, followed by secure configuration." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Full small-office Wi‑Fi review, documentation, and training on safe usage." }
+          ]
+        },
+        {
+          "name": "Cybersecurity Training & Consulting",
+          "tiers": [
+             { "name": "Free Trial", "price": "₹0", "details": "15–30 minute Q&A or quick advice session (chat/voice)." },
+            { "name": "₹499", "price": "₹499", "details": "30–45 minute basic security awareness session for individuals." },
+            { "name": "₹999", "price": "₹999", "details": "1–hour session with slides or live demo (beginners)." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "2–hour session: basics of safe browsing, passwords, and common scams." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Half-day workshop outline or multiple short sessions for a small team." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Structured mini-course over multiple days (e.g., 4 × 1-hour sessions)." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "1-week mini-bootcamp or custom curriculum for a small group (online)." }
+          ]
+        },
+        {
+          "name": "Security Tooling & Environment Setup",
+          "tiers": [
+             { "name": "Free Trial", "price": "₹0", "details": "High-level recommendation of tools and OS setup." },
+            { "name": "₹499", "price": "₹499", "details": "Basic guide to installing one security OS or toolkit." },
+            { "name": "₹999", "price": "₹999", "details": "Step-by-step documentation for your environment." },
+            { "name": "₹1,999", "price": "₹1,999", "details": "Remote assistance with installing and configuring key tools." },
+            { "name": "₹2,999", "price": "₹2,999", "details": "Customized scripts or small automation for routine tasks." },
+            { "name": "₹4,999", "price": "₹4,999", "details": "Full lab setup: VMs, tools, basic documentation." },
+            { "name": "₹9,999", "price": "₹9,999", "details": "Advanced lab with multiple machines, scenarios, and ongoing tuning support." }
+          ]
+        }
+      ]
+    }
+  ],
+  "customWork": {
+    "title": "Custom Work",
+    "description": "For any work that does not fit perfectly into a package.",
+    "points": [
+      "Start with Free Trial (small audit, discussion, or PoC).",
+      "Combine nearby tiers (e.g., ₹999 + ₹1,999 pieces).",
+      "Cap most individual mini-projects at ₹9,999 unless clearly much larger."
+    ]
+  }
+}

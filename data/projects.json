@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "E-Commerce Platform",
+    "description": "A full-featured e-commerce store built with Next.js, Stripe integration, and a custom CMS for product management.",
+    "tags": ["Next.js", "React", "Stripe", "Tailwind"],
+    "link": "#",
+    "image": "/placeholder.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Cybersecurity Audit Tool",
+    "description": "Automated script for basic vulnerability scanning and network reconnaissance using Python and Nmap.",
+    "tags": ["Python", "Security", "Automation", "Nmap"],
+    "link": "#",
+    "image": "/placeholder.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Portfolio Website",
+    "description": "A minimalist, high-performance portfolio website with dark mode and smooth animations.",
+    "tags": ["React", "Framer Motion", "Next.js"],
+    "link": "#",
+    "image": "/placeholder.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Task Management App",
+    "description": "A productivity application for managing daily tasks with real-time sync across devices.",
+    "tags": ["React Native", "Firebase", "Mobile"],
+    "link": "#",
+    "image": "/placeholder.jpg"
+  }
+]

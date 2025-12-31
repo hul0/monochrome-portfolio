@@ -6,6 +6,15 @@ import Link from "next/link"
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const navItems = [
+    { name: 'About', href: '/#about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Certificates', href: '/#certificates' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Testimonials', href: '/#testimonials' },
+  ]
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent ">
       <nav className="relative glass-card rounded-4xl max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4 flex items-center justify-between backdrop-blur-2xl">
@@ -27,18 +36,18 @@ export function Header() {
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-4">
           <div className="glass-card px-6 py-2 rounded-4xl flex items-center gap-6 border-primary/10 bg-black/20">
-            {['About', 'Certificates', 'Services', 'Testimonials'].map((item) => (
+            {navItems.map((item) => (
               <Link 
-                key={item}
-                href={`#${item.toLowerCase()}`} 
+                key={item.name}
+                href={item.href} 
                 className="text-sm font-mono uppercase tracking-widest text-white/70 hover:text-primary transition-colors hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </div>
           <Link
-            href="#contact"
+            href="/#contact"
             className="px-6 glass-card py-2 bg-primary text-white font-bold rounded-4xl backdrop-blur-md transition-all duration-300 font-mono uppercase text-sm tracking-widest shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:-translate-y-0.5"
           >
             Contact
@@ -55,18 +64,18 @@ export function Header() {
             }}
           >
             <div className="flex flex-col gap-2 p-6">
-              {['About', 'Work', 'Certificates', 'Services', 'Testimonials'].map((item) => (
+              {navItems.map((item) => (
                 <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.name}
+                  href={item.href}
                   className="text-lg font-mono text-white/80 hover:text-primary glass p-3 rounded-4xl text-center transition-all"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item}
+                  {item.name}
                 </Link>
               ))}
               <Link
-                href="#contact"
+                href="/#contact"
                 className="mt-2 px-6 py-3 bg-primary text-white font-bold rounded-4xl text-center font-mono uppercase shadow-lg"
                 onClick={() => setIsOpen(false)}
               >
