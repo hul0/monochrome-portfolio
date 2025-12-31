@@ -21,12 +21,12 @@ export default function ProjectsPage() {
           </p>
         </div>
 
-      <div className="container mx-auto px-4 mt-12">
+      <div className="container  mx-auto px-4 mt-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectsData.map((project) => (
             <div 
               key={project.id} 
-              className="group relative border border-border/50 rounded-xl bg-card/30 backdrop-blur-md overflow-hidden hover:border-primary/50 transition-colors"
+              className="group glass-card relative border border-border/50 rounded-xl bg-card/30 backdrop-blur-md overflow-hidden hover:border-primary/50 transition-colors"
             >
               <div className="aspect-video relative bg-muted/50">
                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-muted/20">

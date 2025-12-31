@@ -6,6 +6,14 @@ import { title } from "process";
 export function Certificates() {
   const certificates = [
     {
+      title: "Ethical Hacker",
+      issuer: "Cisco",
+      date: "2025",
+      image: "/ethical-hacker-cisco-completed-by-hulo-biral.png",
+      id: "CISCO-EH-001",
+      link: "https://www.credly.com/badges/3fe9f5e2-8f1d-4237-a229-18655b4c3417/public_url"
+    },
+    {
       title: "Introduction to Cybersecurity",
       issuer: "Cisco",
       date: "2025",

@@ -18,10 +18,10 @@ export default function PricingPage() {
           </p>
         </div>
 
-      <div className="container mx-auto px-4 mt-12 space-y-24">
+      <div className="container  mx-auto px-4 mt-12 space-y-24">
         {pricingData.sections.map((section) => (
           <section key={section.id} id={section.id} className="scroll-mt-24">
-            <div className="mb-8 border-b border-border/40 pb-4 backdrop-blur-sm bg-background/30 rounded-t-xl p-4">
+            <div className="mb-8 glass-card border-b border-border/40 pb-4 backdrop-blur-sm bg-background/30 rounded-t-xl p-4">
               <h2 className="text-3xl font-bold mb-2">{section.title}</h2>
               <p className="text-muted-foreground">{section.description}</p>
             </div>
@@ -31,7 +31,7 @@ export default function PricingPage() {
               <h3 className="text-xl font-semibold mb-6 px-2">Tier Overview</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {section.overview.map((item, idx) => (
-                  <div key={idx} className="p-4 border border-border/50 rounded-lg bg-card/40 backdrop-blur-md hover:bg-card/60 transition-colors">
+                  <div key={idx} className="p-4 glass-card border border-border/50 rounded-lg bg-card/40 backdrop-blur-md hover:bg-card/60 transition-colors">
                     <div className="font-bold text-lg text-primary mb-1">{item.tier}</div>
                     <div className="text-sm text-muted-foreground">{item.desc}</div>
                   </div>
@@ -42,7 +42,7 @@ export default function PricingPage() {
             {/* Detailed Packages Tables */}
             <div className="space-y-12">
               {section.packages.map((pkg, pIdx) => (
-                <div key={pIdx} className="overflow-hidden border border-border/50 rounded-xl bg-card/20 backdrop-blur-sm">
+                <div key={pIdx} className="overflow-hidden glass-card border border-border/50 rounded-xl bg-card/20 backdrop-blur-sm">
                   <div className="bg-muted/30 p-4 border-b border-border/50">
                     <h3 className="text-xl font-semibold">{pkg.name}</h3>
                   </div>
@@ -85,7 +85,7 @@ export default function PricingPage() {
         ))}
 
         {/* Custom Work Section */}
-        <section className="bg-primary/5 border border-primary/20 rounded-2xl p-8 md:p-12 text-center space-y-6 backdrop-blur-md">
+        <section className="bg-primary/5 glass-card border border-primary/20 rounded-2xl p-8 md:p-12 text-center space-y-6 backdrop-blur-md">
           <h2 className="text-3xl font-bold">{pricingData.customWork.title}</h2>
           <p className="text-lg text-muted-foreground">{pricingData.customWork.description}</p>
           <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 text-left max-w-3xl mx-auto">
